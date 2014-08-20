@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta property="og:title" content="Percentual de compras federais sustentáveis é muito baixo" /><meta property="og:url" content="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2013/12/05/percentual_de_compras_federais_sustentaveis_e_muito_baixo_163758.php" /><meta property="og:language" content="pt-br" /><meta property="og:type" content="article" /><meta property="og:image" content="http://jc3.uol.com.br/blogs/blogcma/imagens/cma-face.png" /><title>Percentual de compras federais sustentáveis é muito baixo - Blog Ciência Meio Ambiente</title>
+<meta name="keywords" lang="pt-br" content="Blog Ciência Meio Ambiente" />
+<meta name="robots" content="ALL" />
+<meta name="distribution" content="Global" />
+<meta name="rating" content="General" />	
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogcma/css/ciencia.css"/>
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogcma/css/vitrineVeronica.css"/>
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogcma/css/galeria.css"/>
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogcma/css/galeria_rolagem.css"/>
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogcma/css/thickbox.css"/>
+	<link rel="apple-touch-icon" href="http://jc3.uol.com.br/blogs/blogcma/imagens/cma-ipad.png" />
+	<!--[if lt ie 7]>
+	<link rel="stylesheet" type="text/css" href="http://www2.uol.com.br/JC/blogs/blogcma/css/dia-a-dia-ie6.css"/>
+	<![endif]-->
+	<script language="javascript" type="text/javascript" src="http://jc3.uol.com.br/blogs/js/funcoes.js"></script>
+	<script language="javascript" type="text/javascript" src="http://jc3.uol.com.br/blogs/blogcma/js/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www2.uol.com.br/JC/blogs/blogcma/js/thickbox.js"></script>
+
+	<!-- Navegação Interna //-->
+	<link href="http://jc3.uol.com.br/blogs/blogcma/css/paginacao-interna.css?id=2097329402" rel="stylesheet">
+	<script type="text/javascript" src="http://jc3.uol.com.br/blogs/blogcma/js/jquery-easing-pack.min.js?ver=1.7.2"></script>	
+	<script type="text/javascript" src="http://jc3.uol.com.br/blogs/blogcma/js/paginacao.js"></script>
+	
+	
+	<script language="javascript">
+	$(document).ready
+	(
+	
+		function()
+		{
+		
+			
+			$("#btEnviar").click
+			(
+			
+				function()
+				{
+				
+					erros	= "";
+					vazio("txtNome","spTxtNome","","","dia");
+					//vazio("txtLogin","spTxtLogin","","","dia");
+					//vazio("txtSenha","spTxtSenha","","","dia");
+					vazio("txtEmail","spTxtEmail","","","dia");
+					vazio("txtCaptcha","spTxtCaptcha","","","dia");
+					vazio("txtTexto","spTxtTexto","","","dia");
+					if(erros == "")
+					{
+					
+						$().ajaxStart(function(){ $("#feedback-a").show()});
+						$.post("../../../../../tratamento/trata.comentario.php",
+						{
+						
+							tipo	: "inserir",
+							nome	: $("#txtNome").val(),
+							//login	: $("#txtLogin").val(),
+							//senha	: $("#txtSenha").val(),
+							email	: $("#txtEmail").val(),	
+							captcha	: $("#txtCaptcha").val(),
+							texto	: $("#txtTexto").val(),
+							codigo	: 163758							
+						},
+						function(retorno)
+						{
+						
+							if(retorno != "")
+							{
+							
+								$("#feedback-b").html(retorno);
+								
+							}
+							else
+							{
+							
+								$("#feedback-b").html('Seu comentário foi enviado com sucesso');
+								onComplete	: limpaForm();
+	
+							}
+							
+												
+						}
+						)
+						$().ajaxStop(function(){ $("#feedback-a").hide()});
+					
+					}
+					
+				}
+				
+			)
+		
+		}
+	
+	)
+	function votarEnquete(id)
+	{
+	
+		$.post('../../../../../tratamento/trata.enquete.php',
+		{
+		
+			tipo		: "votar",
+			opcao		: $("input[@name=enquete"+id+"][@checked]").val(),
+			codigo		: id
+		
+		},
+		function(retorno)
+		{
+			
+
+			if(retorno=="")
+			{
+				
+				$("#divEnquete"+id+"").hide();
+				$("#divResultado"+id+"").show();
+				$("#divResultado"+id+"").load("../../../../../inclusao/inc.resultadoEnquete.php",
+				{
+				
+				codEnq	: id
+				
+				},
+					function()
+					{
+					
+						$("#btVoltar").click
+						(
+						
+							function()
+							{
+							
+								$("#divResultado"+id+"").hide();
+								$("#divEnquete"+id+"").show();
+							
+							}
+						
+						)
+					
+					}
+				
+				)
+				
+			}
+
+		}
+		
+		)
+	
+	}
+	function verResultado(id)
+	{
+	
+		$("#divEnquete"+id+"").hide();
+		$("#divResultado"+id+"").show();
+		$("#divResultado"+id+"").load("../../../../../inclusao/inc.resultadoEnquete.php",
+		{
+		
+		codEnq	: id
+		
+		},
+			function()
+			{
+			
+				$("#btVoltar").click
+				(
+				
+					function()
+					{
+					
+						$("#divResultado"+id+"").hide();
+						$("#divEnquete"+id+"").show();
+					
+					}
+				
+				)
+			
+			}
+		
+		)
+	
+	}
+
+	function limpaForm()
+	{
+	
+		$("#txtNome").attr("value","");
+		//$("#txtLogin").attr("value","");
+		//$("#txtSenha").attr("value","");
+		$("#txtEmail").attr("value","");
+		$("#txtCaptcha").attr("value","");
+		$("#txtTexto").attr("value","");
+	
+	}
+	function trocaFoto(nomeImagem,idGaleria,legendaImagem,creditoImagem)
+	{
+	
+		$("#divImagemGaleria"+idGaleria+"").load("http://jc3.uol.com.br/blogs/blogcma/inclusao/inc.mostraFotoGaleria.php",
+				{
+					nome	: nomeImagem,
+					legenda	: legendaImagem,
+					credito	: creditoImagem
+				
+				},
+					function()
+					{
+					
+						//alert('asdad');
+					
+					}
+				
+				);
+		//;
+		//$("#divImagem"+idGaleria+"").html("<img src='http://jc3.uol.com.br/blogs/repositorio/" + nomeImagem+"' alt='' />");
+	
+	}
+
+	</script>
+	<script type='text/javascript' src='http://adserver.ne10.uol.com.br/arquivos/scripts/blogcma.js?r=1018925540'></script>
+
+	<script>
+		var banner_veiculo = 'blogcma';
+		var banner_canal = 0;
+		var banner_secao = 0;
+		var hitUnico = true;
+		var sinc = new Array();
+		var hitAd = new Array();
+	</script>	
+	
+</head>
+<body onload="carregaImagemOkut();">
+	<script type="text/javascript" src="http://barra.ne10.uol.com.br/parceiro/blog-cma-92.js"></script> 
+	<div id="fnp-nav"><div class="fnp-previous" style="top: 50%; position: fixed; width: 53px;">	<a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2013/12/04/camera_defende_uso_consciente_de_sacolas_plasticas_163622.php">		<div class="fnp-box-left"></div>		<div class="fnp-content-left">				<div class="fnp-content-border"></div>				<div class="fnp-nav-title">Anterior</div>				<div class="fnp-nav-link">Câmera defende uso consciente de sacolas plásticas</div>		</div>	</a></div></div>	
+	<div id="principal">
+		<style type="text/css">
+  .gsc-control-cse {
+    font-family: Arial, sans-serif;
+ /*   border-color: #515151;
+    background-color: #fff;*/
+  }
+    
+  input.gsc-input {
+    border:1px solid #BCCDF0;
+	width:255px !important;
+	margin-top:18px;
+	margin-left:20px;
+	margin-right:10px;
+  }  
+  
+  .gsc-search-button{ 
+	background-color: #FFFFFF !important;
+	border: 0 none !important;
+	color: #515151 !important;
+	font-size: 12px;
+	height: 18px;
+	margin-left: -5px !important;
+	width: 50px;
+  }
+  
+  .gsc-tabHeader.gsc-tabhInactive {
+    border-color: #E9E9E9;
+    background-color: #E9E9E9;
+  }
+  .gsc-tabHeader.gsc-tabhActive {
+    border-top-color: #FF9900;
+    border-left-color: #E9E9E9;
+    border-right-color: #E9E9E9;
+    background-color: #FFFFFF;
+  }
+  .gsc-tabsArea {
+    border-color: #E9E9E9;
+  }
+  
+  .gsc-webResult.gsc-result {
+      text-align:left !important;
+  }
+  .gsc-webResult.gsc-result:hover {
+    border-color: #FFFFFF;
+    background-color: #ffffff;
+  }
+  .gs-result .gs-title, .gs-result .gs-title * {
+    color: #629090 !important;
+    text-decoration:none !important;
+       text-align:left !important;
+}
+  .gs-webResult.gs-result a.gs-title:link,
+  .gs-webResult.gs-result a.gs-title:link b {
+    color: #629090;
+       text-align:left !important;
+  }
+  .gs-webResult.gs-result a.gs-title:visited,
+  .gs-webResult.gs-result a.gs-title:visited b {
+    color: #629090;
+       text-align:left !important;
+  }
+  .gs-webResult.gs-result a.gs-title:hover,
+  .gs-webResult.gs-result a.gs-title:hover b {
+    color: #629090;
+       text-align:left !important;
+  }
+  .gs-webResult.gs-result a.gs-title:active,
+  .gs-webResult.gs-result a.gs-title:active b {
+    color: #629090;
+  }
+  .gsc-cursor-page {
+    color: #629090;
+       text-align:left !important;
+  }
+  a.gsc-trailing-more-results:link {
+    color: #629090;
+       text-align:left !important;
+  }
+  .gs-webResult .gs-snippet {
+    color: #515151;
+  }
+  .gs-webResult div.gs-visibleUrl {
+    color: #629090;
+  }
+  .gs-webResult div.gs-visibleUrl-short {
+    color: #629090;
+  }
+  .gs-webResult div.gs-visibleUrl-short {
+    display: block;
+  }
+  .gs-webResult div.gs-visibleUrl-long {
+    display: none;
+  }
+  .gsc-cursor-box {
+    float:left;
+ text-align:left;
+ margin-top:20px;
+  }
+  .gsc-results .gsc-cursor-page {
+    border-color: #E9E9E9;
+    background-color: #ffffff;
+  }
+  .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+    color:#629090 !important;
+  
+  }
+  .gs-promotion {
+    border-color: #ffffff;
+    background-color: #ffffff;
+  }
+  .gs-promotion a.gs-title:link,
+  .gs-promotion a.gs-title:link *,
+  .gs-promotion .gs-snippet a:link {
+    color: #629090;
+ text-align:left !important;
+  }
+  .gs-promotion a.gs-title:visited,
+  .gs-promotion a.gs-title:visited *,
+  .gs-promotion .gs-snippet a:visited {
+    color: #629090;
+  text-align:left !important;
+  }
+  .gs-promotion a.gs-title:hover,
+  .gs-promotion a.gs-title:hover *,
+  .gs-promotion .gs-snippet a:hover {
+    color: #629090;
+  text-align:left !important;
+  }
+  .gs-promotion a.gs-title:active,
+  .gs-promotion a.gs-title:active *,
+  .gs-promotion .gs-snippet a:active {
+    color: #629090;
+  text-align:left !important;
+  }
+  .gs-promotion .gs-snippet,
+  .gs-promotion .gs-title .gs-promotion-title-right,
+  .gs-promotion .gs-title .gs-promotion-title-right *  {
+    color: #515151;
+  text-align:left !important;
+  }
+  .gs-promotion .gs-visibleUrl,
+  .gs-promotion .gs-visibleUrl-short {
+    color: #008000;
+  }
+  .gsc-clear-button{
+  display:none;
+  }
+  
+  .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+    color: #629090 !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+ 
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+    color: #515151 !important;;
+    cursor: pointer;
+    display: inline;
+    margin-right: 8px;
+    text-decoration: none !important;
+}
+ 
+.gs-no-results-result .gs-snippet, .gs-error-result .gs-snippet {
+    background-color: #f8f8f8 !important;
+    border: 1px solid #f0f0f0 !important;
+    margin: 5px;
+    padding: 5px;
+}
+.gs-spelling a {
+    color: #515151;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+ 
+</style>
+
+
+<script language="javascript">
+function buscar(offset)
+{
+	erros	= "";
+	if($("#txtBusca").val()=="")
+	{
+
+		erros	+= "Você precisa digitar algo para realizar a busca \n";
+
+	}
+	if($("#txtBusca").val().length<=3)
+	{
+
+		erros	+= "Você deve digitar no mínimo quatro caracteres \n";
+
+	}
+	if(erros!="")
+	{
+
+		alert("Verificar os seguintes campos:\n------------------------------------\n"+erros);
+
+	}
+	else
+	{
+
+		window.location	= '#topo';
+		//Passar os dados via método post para a página citada;
+		$().ajaxStart(function(){ 	$("#buscando").show(); });
+		$.post('http://jc3.uol.com.br/blogs/blogcma/tratamento/trata-busca.php',
+		{
+
+			tipo	: 'buscar',
+			texto	: $("#txtBusca").val(),
+			offset  : offset
+
+		},
+		function(retorno)
+		{
+
+			//O retorno será mostrado na div citada;
+			$("#coluna2").empty();
+			$("#coluna2").html(retorno);
+
+		}
+		)
+		$().ajaxStop(function(){ $("#buscando").hide()});
+
+	}
+
+}
+</script>
+<script language="JavaScript" src="http://jc3.uol.com.br/includes/AC_RunActiveContent.js"></script>
+
+<script>
+//Variaveis de configuracao
+var DEaff="parjconline";	// Affiliate
+var DEchan="parjconlineblogcma";		// Canal quando existe
+var DEsubc="outros";	// Subcanal capa ou outros.
+var Expble=1;		// Alterar para 0 se não houver 240 pixels de espaço abaixo do 468x60 até o final da pagina
+var DEcmpng=0;		// Alterar para 1 se participa de qualquer campanha vendida pelo UOL "cmpng"
+var DEGroup=5;		// Grupo de afinidade "group"
+//Fim da configuracao 
+
+
+/* NAO ALTERAR DAQUI PARA BAIXO, apenas remova os comentarios se precisar.
+A linha abaixo deve obrigatoriamente ficar fora da função o valor de 
+"DErand" nao pode ser diferente para os banners de uma mesma pagina */
+d=document; var DEt=new Date(); DEt=DEt.getTime(); DErand=Math.floor(DEt*1000*Math.random());
+
+//Verifica tipo de conexao do usuario
+var DEconn=d.body; DEconn.style.behavior='url(#default#clientCaps)'; DEconn=(DEconn.connectionType=='lan')?1:0;
+
+//Verifica resolucao de tela
+var scw=0,sch=0; if(screen.height){scw=screen.width;sch=screen.height;}
+
+//Funcao que exibe o banner
+function DEshow(ad,pos){
+d.write('<scr'+'ipt language="JavaScript1.1" src="http://bn.uol.com.br/js.ng/site=par&chan='+DEchan+'&subchan='+DEsubc+'&affiliate='+DEaff+'&size='+ad+'&page='+pos+'&conntype='+DEconn+'&expble='+Expble+'&reso='+scw+'x'+sch+'&cmpng='+DEcmpng+'&group='+DEGroup+'&tile='+DErand+'?"></scr'+'ipt>');
+}
+</script>
+
+<script src="//www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1');
+
+      function inputFocus() {
+        document.getElementById('query-input').style['background'] = '';
+      }
+
+      function inputBlur() {
+        var queryInput = document.getElementById('query-input');
+        if (!queryInput.value) {
+          queryInput.style['background'] = '';
+        }
+      }
+
+      function init() {
+        google.search.CustomSearchControl.attachAutoCompletion(
+            '000494082698549333384:plk5kj8mlfc',
+            document.getElementById('query-input'),
+            'two-page-form');
+        inputBlur();
+      }
+
+      function submitQuery() {
+        window.location = 'http://jc3.uol.com.br/blogs/blogcma/busca.php?q='
+            + encodeURIComponent(
+                document.getElementById('query-input').value);
+        return false;
+      }
+
+      google.setOnLoadCallback(init);
+</script>
+<div id="banner-full">
+<script>
+var arrTipoBanners = new Array("728x90", "468x60");
+var idx = Math.floor(Math.random() * 2 + 1) - 1;
+DEshow("728x90",1);
+</script>
+</div>
+  <!-- TOPO -->
+    <div id="topo">
+          <h1><a href="http://jc3.uol.com.br/blogs/blogcma">
+<img src="http://jc3.uol.com.br/blogs/blogcma/imagens/logo.jpg" alt="Blog Ciência e Meio Ambiente" border="0"/>
+
+</a></h1>
+		  <!--área de busca -->
+          <div id="busca">
+		<!--Banner Patrocínio-->
+		<div style="float:right; margin-top:-20px;margin-left:20px; width:120px; height:35px;">
+			
+		</div>
+		<!--Fim do Banner Patrocínio-->
+
+            <form class="gsc-search-box" onsubmit="return submitQuery()">
+      			<input class="gsc-input" name="q"  id="query-input" onfocus="inputFocus();" onblur="inputBlur();" autocomplete="on" />
+      			<button class="gsc-search-button" type="submit">BUSCA</button>
+     		</form>
+
+          </div>
+	<!--  <p id="buscando">Buscando...</p>-->	
+  </div>
+
+<div id='dv-floater1'>
+<div id='floater1' style='height:auto;left:240px;position:absolute;top:250px;width:250px;z-index:999;'>
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(9);
+//-->
+</script>
+</div>
+</div>		<!--FIM DE TOPO -->
+		
+		<!-- CONTEUDO -->
+		<div id="conteudo">
+			<div id="coluna1">
+		
+<script type="text/javascript">
+$(document).ready(function(){
+	var urlAtual = window.location.href;
+	var canal = "index";
+	function getPosicao(arrayName,arrayItem)
+	{
+	  for(var i=0;i<arrayName.length;i++){ 
+	   if(arrayName[i]==arrayItem)
+	  return i;
+	  }
+	}
+	//Verifica se é um canal
+	if(urlAtual.indexOf('canais')>-1){
+		var arrUrl = urlAtual.split("/");
+		var posicaoCanal = getPosicao(arrUrl,"canais");
+		canal = arrUrl[posicaoCanal+1];
+	}else{
+	//Se não for canal ou é a index ou é uma galeria
+		if(urlAtual.indexOf('galerias')>-1){
+			canal = "galerias.php";
+		}else{
+			//é a index
+			canal = "index";
+		}
+	}
+	
+	$("#"+canal).addClass('clicada');
+
+   	
+
+	
+
+   
+});
+</script>
+
+<ul id="menu">
+		<li id="index">
+			<a href="http://jc3.uol.com.br/blogs/blogcma/index.php">Principal</a>
+		</li>
+			
+							<li id="noticias">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/index.php">Notícias</a>
+			</li>	
+					
+							<li id="artigos">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/artigos/index.php">Artigos</a>
+			</li>	
+					
+							<li id="canais/noticias/2009/07/14/quem_faz_o_blog_50662.php">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2009/07/14/quem_faz_o_blog_50662.php">Perfil</a>
+			</li>
+					
+							<li id="apresentacao">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/apresentacao/index.php">Apresentação</a>
+			</li>	
+					
+							<li id="mudancaclimatica">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/mudancaclimatica/index.php">Mudança climática</a>
+			</li>	
+					
+							<li id="suape">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/suape/index.php">Suape</a>
+			</li>	
+					
+							<li id="codigoflorestal">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/codigoflorestal/index.php">Código Florestal</a>
+			</li>	
+					
+							<li id="usinanuclear">
+				<a href="http://jc3.uol.com.br/blogs/blogcma/canais/usinanuclear/index.php">usina nuclear</a>
+			</li>	
+					
+			</ul>
+			
+			<!-- PARCEIROS -->
+			</div>
+			<div id="coluna2">
+			  <!-- ///////////////////  FIM DO POST /////////////////// -->
+<div class="post">
+				
+				<div class="chapeu">mau exemplo</div>
+                
+				<!--título do post -->
+				<h2>Percentual de compras federais sustentáveis é muito baixo</h2>
+
+				<!--data -->
+				<div class="data">POSTADO ÀS 21:27 EM 05 DE Dezembro DE 2013</div>
+
+				<div id="redes">
+				   <!-- Twitter -->
+					<div class="redes_botao">
+					   <a href="http://twitter.com/share" class="twitter-share-button" data-text="Blog Ciência Meio Ambiente - Percentual de compras federais sustentáveis é muito baixo" data-url="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2013/12/05/percentual_de_compras_federais_sustentaveis_e_muito_baixo_163758.php" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				   </div>
+				   <!-- Facebook -->
+					<div class="redes_botao">
+						<iframe src="http://www.facebook.com/plugins/like.php?href=http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2013/12/05/percentual_de_compras_federais_sustentaveis_e_muito_baixo_163758.php&layout=button_count&show_faces=true&width=300&action=recommend&font=arial&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
+					</div>
+				</div>
+				
+				<!-- área de foto -->
+        												
+				<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	BRAS&Iacute;LIA - A secret&aacute;ria de Articula&ccedil;&atilde;o Institucional e Cidadania Ambiental do Minist&eacute;rio do Meio Ambiente, Mariana Meirelles, disse na ter&ccedil;a (5) que apenas 0,1% do total das compras do governo federal, produtos e servi&ccedil;os, &eacute; sustent&aacute;vel. Para ela, a administra&ccedil;&atilde;o p&uacute;blica tem um enorme desafio para melhorar esse indicador. &nbsp;</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	&ldquo;Desde a [Confer&ecirc;ncia] Rio + 20 tem havido um aumento [nas compras sustent&aacute;veis]. No ano passado, houve um crescimento de 236% nas compras sustent&aacute;veis [usando crit&eacute;rios ambientais], mas ainda assim &eacute; muito baixo o percentual [do volume total]&rdquo;, disse a secret&aacute;ria, ao participar do di&aacute;logo p&uacute;blico promovido pelo Tribunal de Contas da Uni&atilde;o (TCU) sobre contrata&ccedil;&otilde;es p&uacute;blicas sustent&aacute;veis.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	Segundo Mariana, a mudan&ccedil;a no padr&atilde;o de consumo e produ&ccedil;&atilde;o deve come&ccedil;ar pelo governo em parceria com o setor produtivo. &ldquo;O governo tem que, de fato, promover o desenvolvimento sustent&aacute;vel e tem mecanismos para isso, por meio de compras p&uacute;blicas e licita&ccedil;&otilde;es sustent&aacute;veis&rdquo;.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	De acordo com a secret&aacute;ria e o vice-presidente do TCU, Aroldo Cedraz de Oliveira, &eacute; preciso mudar o paradigma das compras p&uacute;blicas do menor pre&ccedil;o a qualquer custo sem levar em considera&ccedil;&atilde;o os aspectos socioambientais. &ldquo;Existe uma prerrogativa de que os princ&iacute;pios da economicidade e da isonomia concorrencial prevalecem sobre os demais aceitando que empresas n&atilde;o sustent&aacute;veis possam ter a mesma aten&ccedil;&atilde;o que empresas sustent&aacute;veis&rdquo;, disse Mariana.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	O vice-presidente do TCU informou que o Decreto 7.746/12 - que regulamenta o Artigo 3&ordm; da Lei 8.666/93 (Lei de Licita&ccedil;&otilde;es) estabelecendo crit&eacute;rios para a promo&ccedil;&atilde;o do desenvolvimento sustent&aacute;vel por meio das contrata&ccedil;&otilde;es feitas pela administra&ccedil;&atilde;o p&uacute;blica federal &ndash; traz avan&ccedil;os para as compras p&uacute;blicas sustent&aacute;veis, mas o marco regulat&oacute;rio ainda precisa de ajustes. &ldquo;A Lei 8.666 se mostra em alguns aspectos j&aacute; ultrapassada e tem que ser revista&rdquo;.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	Para Oliveira, o tema precisa estar na agenda dos gestores p&uacute;blicos para que o pa&iacute;s cres&ccedil;a de forma sustent&aacute;vel. &ldquo;Come&ccedil;a a haver um movimento para que possamos a partir de agora entender que os recursos p&uacute;blicos federais t&ecirc;m que ser aplicados dentro do par&acirc;metro de uma economia que preserve nossos recursos naturais&rdquo;, acrescentou.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	O presidente do TCU, Augusto Nardes, ressaltou que o tribunal tem observado que os projetos de obras de infraestrutura n&atilde;o contemplam o meio ambiente e comprometem a biodiversidade. &ldquo;Queremos que as obras de infraestrutura obede&ccedil;am a crit&eacute;rios socioambientais desde o in&iacute;cio. O que o TCU tem encontrado &eacute; que a obra j&aacute; est&aacute; em andamento e n&atilde;o foi levada em considera&ccedil;&atilde;o a quest&atilde;o ambiental. Isso leva a um desperd&iacute;cio do dinheiro p&uacute;blico e de tempo&rdquo;.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	O diretor-presidente da&nbsp;<strong>Empresa Brasil de Comunica&ccedil;&atilde;o (EBC)</strong>, Nelson Breve, que participou do evento, informou que a sustentabilidade &eacute; um dos valores da miss&atilde;o e do plano estrat&eacute;gico da empresa. &ldquo;Precisamos incorporar a sustentabilidade &agrave;s nossas compras para estimular que as contrata&ccedil;&otilde;es que a gente fa&ccedil;a, tanto para obras quanto para outros equipamentos, sejam com materiais sustent&aacute;veis. Esse semin&aacute;rio &eacute; importante porque aponta os caminhos com experi&ecirc;ncias que algumas &aacute;reas [governamentais] j&aacute; trilharam. Estamos aqui aprendendo como fazer&rdquo;, disse.</p>
+<p style="margin-bottom: 0.9em; line-height: 19.5px; color: rgb(0, 0, 0); font-family: Verdana, Helvetica, sans-serif; font-size: 13px;">
+	Por Ana Cristina Campos,&nbsp;<em>Rep&oacute;rter da Ag&ecirc;ncia Brasil</em></p>
+				<!--rodapé do post -->
+				<div class="comentarios"> 
+				Postado por Verônica Falcão | <a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/index.php">Notícias</a> | <a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2013/12/05/percentual_de_compras_federais_sustentaveis_e_muito_baixo_163758.php">permalink </a>| <a href="javascript:self.print();">imprimir</a> | <a href="http://jc3.uol.com.br/blogs/blogcma/enviarAmigo.php?codigo=163758">enviar</a>
+                <div class="compartilhe">
+                
+        <a target="_blank" href="http://del.icio.us/post?url=http://goo.gl/aQ9vdK&title=Percentual de compras federais sustentáveis é muito baixo"><img border="0" alt="DELICIOUS" src="http://imagemjc.uol.com.br/imagem/icone_DELICIOUS.gif"/></a>
+        <a target="_blank" href="http://digg.com/submit?phase=2&url=http://goo.gl/aQ9vdK&title=Percentual de compras federais sustentáveis é muito baixo"><img border="0" alt="DIGG" src="http://imagemjc.uol.com.br/imagem/icone_DIGG.gif"/></a>
+        <a target="_blank" href="http://www.newsvine.com/_tools/seed?popoff=0&u=http://goo.gl/aQ9vdK"><img border="0" alt="NEWSVINE" src="http://imagemjc.uol.com.br/imagem/icone_NEWSVINE.gif"/></a>
+        <a target="_blank" href="http://www.stumbleupon.com/submit?url=http://goo.gl/aQ9vdK"><img border="0" alt="STUMBLE" src="http://imagemjc.uol.com.br/imagem/icone_STUMBLE.gif"/></a>
+        <a target="_blank" href="https://favorites.live.com/quickadd.aspx?marklet=1&mkt=en-us&url=http://goo.gl/aQ9vdK"><img border="0" alt="WINDOWS LIVE" src="http://imagemjc.uol.com.br/imagem/icone_LIVE.gif"/></a>
+        <a target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http://goo.gl/aQ9vdK"><img border="0" alt="GOOGLE" src="http://imagemjc.uol.com.br/imagem/icone_GOOGLE.gif"/></a>
+        <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://goo.gl/aQ9vdK"><img border="0" alt="FACEBOOK" src="http://imagemjc.uol.com.br/imagem/icone_FACEBOOK.gif"/></a>
+        <a target="_blank" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http://goo.gl/aQ9vdK&t=Percentual de compras federais sustentáveis é muito baixo"><img border="0" alt="MYSPACE" src="http://imagemjc.uol.com.br/imagem/icone_MYSPACE.gif"/></a>
+        <a target="_blank" href="http://twitter.com/home?status=http://goo.gl/aQ9vdK"><img border="0" alt="TWITTER" src="http://imagemjc.uol.com.br/imagem/icone_TWITTER.gif"/></a>
+	 <a target="_blank" href="http://promote.orkut.com/preview?nt=orkut.com&du=http://goo.gl/aQ9vdK&tt=Percentual de compras federais sustentáveis é muito baixo"><img border="0" alt="ORKUT" src="http://jc3.uol.com.br/blogs/blogcma/imagens/icone-orkut.png"/></a>
+        </div>
+	    </div>
+				
+			  </div>
+			  
+				<iframe src="http://jc3.uol.com.br/blogs/blogcma/inclusao/inc.LinksPatrocinadosUolCMA.php" width="500" height="300" border="0" frameborder="0" scrolling="no"></iframe>				<!-- ///////////////////  FIM DO POST /////////////////// -->
+				<div id="comentario">
+				<a name="coments" id="comentarios"></a>
+									<a name="formulario" id="formulario"></a>
+					<div id="feedback-a" style="display:none">Enviando...</div>
+				  <div id="formulario">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+							<td>Nome:</td>
+							<td>
+							  <input type="text" name="txtNome" id="txtNome" /><span id="spTxtNome"></span>
+							</td>
+						  </tr>
+						  <!--<tr>
+							<td>Login:</td>
+							<td><input type="text" name="txtLogin" id="txtLogin" /><span id="spTxtLogin"></span></td>
+						  </tr>
+						  <tr>
+							<td>Senha:</td>
+							<td><input type="password" name="txtSenha" id="txtSenha" /><span id="spTxtSenha"></span></td>
+						  </tr>-->
+						  <tr>
+							<td>Email:</td>
+							<td><input type="text" name="txtEmail" id="txtEmail" /><span id="spTxtEmail"></span></td>
+						  </tr>	
+						  <tr>
+							<td>Validador:</td>
+							<td><img src="http://jc3.uol.com.br/blogs/anti-bot/image.php" align="absmiddle"/>&nbsp;<input name="txtCaptcha" id="txtCaptcha" type="tx" class="validador" maxlength="4" /><span id="spTxtCaptcha"></span></td>
+						  </tr>
+						  <tr>
+							<td>Coment&aacute;rio:</td>
+							<td><textarea id="txtTexto" name="txtTexto"></textarea><span id="spTxtTexto"></span></td>
+						  </tr>
+						  <tr>
+							<td>&nbsp;</td>
+							<td><button id="btEnviar">Enviar</button></td>
+						  </tr>
+						</table>
+						<div id="feedback-b"></div>
+					  <div id="normas">*O coment&aacute;rio &eacute; de total responsabilidade do internauta que
+						o inseriu. O Portal NE10 reserva-se o direito de n&atilde;o publicar
+						mensagens contendo palavras de baixo cal&atilde;o, publicidade, cal&uacute;nia,
+						inj&uacute;ria, difama&ccedil;&atilde;o ou qualquer conduta que possa ser
+						considerada criminosa. Para participar &eacute;  preciso ser um usu&aacute;rio
+						cadastrado. Se voc&ecirc; possui cadastro no Portal NE10, utilize
+						seu login e senha. Para cadastrar-se, clique <a href="http://jc.uol.com.br/grupo/central-do-usuario/cadastrar.php" target="_blank"><strong>aqui</strong></a> -
+					Este servi&ccedil;o &eacute; gr&aacute;tis. Para recuperar sua senha, clique <a href="http://jc.uol.com.br/grupo/central-do-usuario/recuperarSenha.php" target="_blank"><strong>aqui</strong></a>.</div>
+										</div>
+					
+					
+				</div>
+				<!-- ///////////////////  FIM DO COMENTÁRIOS /////////////////// -->
+<!--<div id="paginas"><a href="#">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a> | <a href="#">5</a> | <a href="#">Próximo</a></div>-->
+				
+				
+		  </div>
+<!-- ///////////////////  FIM DA COLUNA 2 /////////////////// -->				
+
+
+			<div id="coluna3">
+		    <div id="perfil"><strong><a href="mailto:vfalcao@jc.com.br">Verônica Falcão<br/>
+				</a></strong> <br/>
+  				é editora do Blog Ciência e Meio Ambiente 
+			  </div>
+
+
+
+<div id="iphone">
+ <a href="http://m.blogcma.com.br/"><img src="http://jc3.uol.com.br/blogs/blogcma/imagens/iphone.jpg" alt="iphone" border="0" /></a> 
+</div>
+
+<div class="banner-quadrado"> 
+	
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(18);
+//-->
+</script></div><script type="text/javascript">
+$(document).ready(function(){
+	$("#galeria-rolagem a.seta-anterior").click(function(){
+		if (parseInt($("#galeria-rolagem div ul").css("left").replace("px","").replace("-","")) > 0) {
+			$("#galeria-rolagem div ul").animate({ left: (parseInt($("#galeria-rolagem div ul").css("left").replace("px","")) + 252) }, "slow");
+		}
+	});
+	$("#galeria-rolagem a.seta-proxima").click(function(){
+				if (parseInt($("#galeria-rolagem div ul").css("left").replace("px","").replace("-","")) + 540 < ($("#galeria-rolagem div ul li").length * 280)) {
+			$("#galeria-rolagem div ul").animate({ left: (parseInt($("#galeria-rolagem div ul").css("left").replace("px","")) - 252) }, "slow");
+		}
+	});
+});
+</script>
+<div id="fotos-destaques">
+    <ul id="recursos">
+        <li class="tipo-recurso">// galeria  <!-- <span class="credito-galeria">por Bernardo Soares</span>--></li>
+    </ul>
+        <div id="galeria-rolagem"> <a class="seta-anterior" href="javascript:;"></a>
+    <div>
+      <ul>
+      
+        <li>
+        	<a href="http://jc3.uol.com.br/blogs/blogcma/galerias/galeria_231.php" title="biodiversidade em mianmar ">
+			<img alt="biodiversidade em mianmar " src="http://jc3.uol.com.br/blogs/repositorio/novaGaleria/galeria_phylloscopus_calciatilis___ulf_johansson_swedish_museum_of_natural_history_414714_20111215115508.jpg"/>
+		</a>
+		<span class="descricao">biodiversidade em mianmar </span>
+        </li>
+      
+        <li>
+        	<a href="http://jc3.uol.com.br/blogs/blogcma/galerias/galeria_160.php" title="biodiversidade">
+			<img alt="biodiversidade" src="http://jc3.uol.com.br/blogs/repositorio/novaGaleria/galeria_caramujo_20110701151120_20110705144736.jpg"/>
+		</a>
+		<span class="descricao">biodiversidade</span>
+        </li>
+        
+      </ul>
+    </div>
+  <a class="seta-proxima" href="javascript:;"></a> </div>
+</div>
+      <!-- DESTAQUE -->
+            <ul id="recursos">
+        <li class="tipo-recurso">// destaques</li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2009/07/29/periquito_amazonico_no_parque_dois_irmaos_51078.php"> <img src="http://jc3.uol.com.br/blogs/imagem/destaque/0b5c8f08920106c056381e28e256caad.jpg" /> Invasora</a></li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogcma/canais/biodiversidade/2010/04/18/um_macaco_de_dois_nomes_68685.php"> <img src="http://jc3.uol.com.br/blogs/imagem/destaque/7f8600b12bb3285fbd9c7bed60117142.jpg" /> Macaco-galego</a></li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogcma/canais/noticias/2010/04/13/por_que_manter_o_mangue_de_suape_68247.php"> <img src="http://jc3.uol.com.br/blogs/imagem/destaque/2026a106414a7c2e75dbf2de3df2498b.jpg" /> Manguezal</a></li>
+              </ul>
+      <br />
+      <iframe scrolling="no"  style="width:100%;height:300px;border:0;background: " src="http://jc3.uol.com.br/blogs/blogcma/inclusao/inc.boxFacebook.php">
+
+</iframe>
+<br/><br/><div id="twitter_div">
+	<ul id="recursos">
+		<li class="tipo-recurso">// twitter </li>
+	</ul> 
+	<ul id="twitter_update_list"></ul>
+	<div class="siga-me">
+		<a href="http://twitter.com/jc_meioambiente" >Siga-me no Twitter</a>
+	</div>
+</div>
+<br/>
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(19);
+//-->
+</script><br>
+<br>      <!-- ARQUIVO -->
+      <ul id="recursos">
+        <li class="tipo-recurso">// arquivo</li>
+		        <li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/janeiro/index.php">.janeiro (38)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/fevereiro/index.php">.fevereiro (33)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/marco/index.php">.mar&ccedil;o (39)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/abril/index.php">.abril (31)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/maio/index.php">.maio (36)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/junho/index.php">.junho (36)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/julho/index.php">.julho (25)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/agosto/index.php">.agosto (19)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/setembro/index.php">.setembro (4)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/outubro/index.php">.outubro (8)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/novembro/index.php">.novembro (6)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogcma/arquivo/2013/dezembro/index.php">.dezembro (5)</a></li>
+		      </ul>
+      <br />
+      <!-- LINKS -->
+      <ul id="recursos">
+                <li class="tipo-recurso">// links </li>
+        		        <li><a href="http://www.anda.jor.br" target='_blank'>Agência de Notícias de Direitos Animais</a></li>
+        		        <li><a href="http://www.amane.org.br" target='_blank'>Amane</a></li>
+        		        <li><a href="http://www.bibliotecadafloresta.ac.gov.br" target='_blank'>Biblioteca da Floresta </a></li>
+        		        <li><a href="http://www.biodiversitas.org.br" target='_blank'>Biodiversitas </a></li>
+        		        <li><a href="http://www.facebook.com/biologiaconect" target='_blank'>Biologia Conectado</a></li>
+        		        <li><a href="http://www.casasaudavel.com.br" target='_blank'>Casa Saudável, da jornalista Cinthya Leite</a></li>
+        		        <li><a href="www.cepan.org.br" target='_blank'>Cepan</a></li>
+        		        <li><a href="http://jconline.ne10.uol.com.br/canal/cidades/cienciamambiente" target='_blank'>Ciência/Meio Ambiente do JC Online</a></li>
+        		        <li><a href="http://www.cloviscavalcanti.blogspot.com" target='_blank'>Clovis Cavalcanti, economista ecológico</a></li>
+        		        <li><a href="http://www.consumolivre.blogspot.com/" target='_blank'>Consumo consciente</a></li>
+        		        <li><a href="http://www.espacociencia.pe.gov.br/" target='_blank'>Espaço Ciência</a></li>
+        		        <li><a href="http://jc.uol.com.br/coluna/foco-ambiental/index.php" target='_blank'>Foco ambiental</a></li>
+        		        <li><a href="http://www.mamiferosaquaticos.org.br" target='_blank'>Fundação Mamíferos Aquáticos </a></li>
+        		        <li><a href="http://internet.boticario.com.br/portal/site/fundacao/" target='_blank'>Fundação O Boticário de Proteção à Natureza</a></li>
+        		        <li><a href="http://greenrecife.blogspot.com" target='_blank'>Greenpeace Recife</a></li>
+        		        <li><a href="http://www.institutohorus.org.br" target='_blank'>Instituto Horus</a></li>
+        		        <li><a href="http://www.socioambiental.org" target='_blank'>Instituto Sócioambiental</a></li>
+        		        <li><a href="http://www.jornalismoambiental.org.br/" target='_blank'>Jornalismo Ambiental</a></li>
+        		        <li><a href="http://www.merosdobrasil.org" target='_blank'>Meros do Brasil</a></li>
+        		        <li><a href="http://blogmundopossivel.com.br/" target='_blank'>Mundo Possível (blog de Antônio Martins Neto sobre sustentabilidade)</a></li>
+        		        <li><a href="www.museucapibaribe.com" target='_blank'>Museu Capibaribe</a></li>
+        		        <li><a href="http://www.jc.com.br" target='_blank'>NE 10</a></li>
+        		        <li><a href="http://www.wspabrasil.org" target='_blank'>Sociedade Mundial de Proteção Animal (WSPA)</a></li>
+        		        <li><a href="http://www.savebrasil.org.br" target='_blank'>Sociedade para a Conservação das Aves do Brasil </a></li>
+              </ul>
+      <br />
+      
+      <script language='Javascript' type='text/javascript'>
+<!--
+showBanner(20);
+//-->
+</script>	
+<br /><br /> <!-- RSS -->
+      <ul id="recursos">
+        <li class="tipo-recurso">// RSS </li>
+        <li><a href="http://jc3.uol.com.br/blogs/blogcma/rss/rss.xml">.Blog Ciência Meio Ambiente</a></li>
+        <!--<li><a href="#">.senac</a></li>
+        <li><a href="#">.vogue</a></li>
+        <li><a href="#">.elle</a></li>-->
+      </ul>
+      <br />
+	  			</div>
+		</div>
+<!-- ////////////////////////// FIM DE CONTEUDO //////////////////////////////// -->
+
+	<!-- RODAPÉ -->
+	<div id="rodape">
+		<!--<ul id="menu-rodape1">
+  <li class="tipo-menu-rodape">// menu</li>
+  <li> <a href="http://jc3.uol.com.br/blogs/blogcma/index.php">Principal</a> </li>
+</ul>
+<ul id="menu-rodape2">
+  <li class="tipo-menu-rodape">// arquivo</li>
+  <li><a href="#">.janeiro</a></li>
+  <li><a href="#">.fevereiro</a></li>
+  <li><a href="#">.mar&ccedil;o</a></li>
+  <li><a href="#">.abril</a></li>
+  <li><a href="#">.maio</a></li>
+  <li><a href="#">.junho</a></li>
+</ul>
+<ul id="menu-rodape3">
+  <li class="tipo-menu-rodape">// tags </li>
+  <li class="tag-5"><a href="#">.moda</a></li>
+  <li class="tag-4"><a href="#">.brasil</a></li>
+  <li class="tag-3"><a href="#">.estilo</a></li>
+  <li class="tag-2"><a href="#">.elite</a></li>
+  <li class="tag-1"><a href="#">.flash</a></li>
+  <li class="tag-1"><a href="#">.faculdade</a></li>
+  <li class="tag-2"><a href="#">.androgino</a></li>
+  <li class="tag-3"><a href="#">.futebol</a></li>
+  <li class="tag-4"><a href="#">.guerra</a></li>
+  <li class="tag-5"><a href="#">.madame</a></li>
+</ul>-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1660854-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+<script type="text/javascript" src="http://imagemjc.uol.com.br/js/twitter.js"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/jc_meioambiente.json?callback=twitterCallback2&amp;count=3"></script>
+	</div>
+	<!--FIM DE RODAPÉ -->	
+
+	</div>
+<!--  BARRA FULL  //-->
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(3);
+//-->
+</script><script type="text/javascript">
+	countHit(hitAd,1);
+</script>
+
+<!-- SiteCatalyst code version: H.19.3. Copyright 1997-2009 Omniture, Inc. More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="http://me.jsuol.com/omtr/jconline.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.19.3. --></body>
+</html>
+<!-- 05-12-2013 22:06:47 -->

@@ -1,0 +1,1015 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Desemprego da RMR atinge 13,5% - Blog de Jamildo</title>
+ 
+<meta property="fb:app_id" content="125053627677478" />
+<meta property="og:image" content="http://jc3.uol.com.br/blogs/blogjamildo/imagens/recomendar.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="blogdejamildo.com"/>		
+<meta property="og:url" content="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/desemprego_da_rmr_atinge_135_porcento_163292.php" />
+<meta property="og:title" content="Desemprego da RMR atinge 13,5% - Blog de Jamildo" />
+<meta property="og:description" content="O mundo da Política de Pernambuco, Brasil e do mundo - Blog de Jamildo"/>
+
+<meta name="keywords" lang="pt-br" content="Blog de Jamildo" />
+<meta name="robots" content="ALL" />
+<meta name="distribution" content="Global" />
+<meta name="rating" content="General" />	
+	<link rel="shortcut icon" href="../../../../../../favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogjamildo/css/jamildo.css?id=2018563734"/>
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogjamildo/css/galeria.css"/>
+	<link rel="stylesheet" type="text/css" href="http://www2.uol.com.br/JC/blogs/blogjamildo/css/thickbox.css"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="http://jc3.uol.com.br/blogs/blogjamildo/css/galeria_rolagem.css" />
+	<link rel="stylesheet" type="text/css" href="http://jc3.uol.com.br/blogs/blogjamildo/css/vitrineJamildo.css" />
+	<link rel="apple-touch-icon" href="http://jc3.uol.com.br/blogs/blogjamildo/imagens/jamildo-ipad.png" />
+	<script language="javascript" type="text/javascript" src="http://jc3.uol.com.br/blogs/js/funcoes.js"></script>
+	<script language="javascript" type="text/javascript" src="http://jc3.uol.com.br/blogs/blogjamildo/js/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www2.uol.com.br/JC/blogs/blogjamildo/js/thickbox.js"></script>
+
+		<!-- Navegação Interna //-->
+	<link href="http://jc3.uol.com.br/blogs/blogjamildo/css/paginacao-interna.css" rel="stylesheet">
+	<script type="text/javascript" src="http://jc3.uol.com.br/blogs/blogjamildo/js/jquery-easing-pack.min.js?ver=1.7.2"></script>	
+	<script type="text/javascript" src="http://jc3.uol.com.br/blogs/blogjamildo/js/paginacao.js"></script>
+	
+	<script language="javascript">
+	$(document).ready
+	(
+	
+		function()
+		{
+		
+			
+			$("#btEnviar").click
+			(
+			
+				function()
+				{
+				
+					erros	= "";
+					vazio("txtNome","spTxtNome","","","dia");
+					//vazio("txtLogin","spTxtLogin","","","dia");
+					//vazio("txtSenha","spTxtSenha","","","dia");
+					vazio("txtEmail","spTxtEmail","","","dia");
+					vazio("txtCaptcha","spTxtCaptcha","","","dia");
+					vazio("txtTexto","spTxtTexto","","","dia");
+					if(erros == "")
+					{
+					
+						$().ajaxStart(function(){ $("#feedback-a").show()});
+						$.post("../../../../../tratamento/trata.comentario.php",
+						{
+						
+							tipo	: "inserir",
+							nome	: $("#txtNome").val(),
+							//login	: $("#txtLogin").val(),
+							//senha	: $("#txtSenha").val(),
+							email	: $("#txtEmail").val(),	
+							captcha	: $("#txtCaptcha").val(),
+							texto	: $("#txtTexto").val(),
+							codigo	: 163292							
+						},
+						function(retorno)
+						{
+						
+							if(retorno != "")
+							{
+							
+								$("#feedback-b").html(retorno);
+								
+							}
+							else
+							{
+							
+								$("#feedback-b").html('Seu comentário foi enviado com sucesso');
+								onComplete	: limpaForm();
+	
+							}
+							
+												
+						}
+						)
+						$().ajaxStop(function(){ $("#feedback-a").hide()});
+					
+					}
+					
+				}
+				
+			)
+		
+		}
+	
+	)
+	function votarEnquete(id)
+	{
+	
+		$.post('../../../../../tratamento/trata.enquete.php',
+		{
+		
+			tipo		: "votar",
+			opcao		: $("input[@name=enquete"+id+"][@checked]").val(),
+			codigo		: id
+		
+		},
+		function(retorno)
+		{
+			
+
+			if(retorno=="")
+			{
+				
+				$("#divEnquete"+id+"").hide();
+				$("#divResultado"+id+"").show();
+				$("#divResultado"+id+"").load("../../../../../inclusao/inc.resultadoEnquete.php",
+				{
+				
+				codEnq	: id
+				
+				},
+					function()
+					{
+					
+						$("#btVoltar").click
+						(
+						
+							function()
+							{
+							
+								$("#divResultado"+id+"").hide();
+								$("#divEnquete"+id+"").show();
+							
+							}
+						
+						)
+					
+					}
+				
+				)
+				
+			}
+
+		}
+		
+		)
+	
+	}
+	function verResultado(id)
+	{
+	
+		$("#divEnquete"+id+"").hide();
+		$("#divResultado"+id+"").show();
+		$("#divResultado"+id+"").load("../../../../../inclusao/inc.resultadoEnquete.php",
+		{
+		
+		codEnq	: id
+		
+		},
+			function()
+			{
+			
+				$("#btVoltar").click
+				(
+				
+					function()
+					{
+					
+						$("#divResultado"+id+"").hide();
+						$("#divEnquete"+id+"").show();
+					
+					}
+				
+				)
+			
+			}
+		
+		)
+	
+	}
+
+	function limpaForm()
+	{
+	
+		$("#txtNome").attr("value","");
+		//$("#txtLogin").attr("value","");
+		//$("#txtSenha").attr("value","");
+		$("#txtEmail").attr("value","");
+		$("#txtCaptcha").attr("value","");
+		$("#txtTexto").attr("value","");
+	
+	}
+	function trocaFoto(nomeImagem,idGaleria,legendaImagem,creditoImagem)
+	{
+	
+		$("#divImagemGaleria"+idGaleria+"").load("http://jc3.uol.com.br/blogs/blogjamildo/inclusao/inc.mostraFotoGaleria.php",
+				{
+					nome	: nomeImagem,
+					legenda	: legendaImagem,
+					credito	: creditoImagem
+				
+				},
+					function()
+					{
+					
+						//alert('asdad');
+					
+					}
+				
+				);
+		//;
+		//$("#divImagem"+idGaleria+"").html("<img src='http://jc3.uol.com.br/blogs/repositorio/" + nomeImagem+"' alt='' />");
+	
+	}
+
+	</script>
+</head>
+
+<body onload="carregaImagemOkut();">
+	<script type="text/javascript" src="http://barra.ne10.uol.com.br/parceiro/blog-do-jamildo-90.js"></script>
+	<div id="fnp-nav"><div class="fnp-previous" style="top: 50%; position: fixed; width: 53px;">	<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/defesa_de_genoino_solicita_nova_avaliacao_medica_ao_stf_163291.php">		<div class="fnp-box-left"></div>		<div class="fnp-content-left">				<div class="fnp-content-border"></div>				<div class="fnp-nav-title">Anterior</div>				<div class="fnp-nav-link">Defesa de Genoino solicita nova avaliação médica ao STF</div>		</div>	</a></div><div class="fnp-next" style="top: 50%; position: fixed;">	<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/senado_aprova_projeto_de_humberto_costa_que_coibe_guerra_fiscal_entre_municipios_163293.php">		<div class="fnp-box-right"></div>		<div class="fnp-content-right">				<div class="fnp-content-border"></div>				<div class="fnp-nav-title">Anterior</div>				<div class="fnp-nav-link">Senado aprova projeto de Humberto Costa que coibe guerra fiscal entre municípios</div>		</div>	</a></div></div>	
+	<div id="principal">
+		<style type="text/css">
+  .gsc-control-cse {
+    font-family: Arial, sans-serif;
+ /*   border-color: #515151;
+    background-color: #fff;*/
+  }
+  input.gsc-input {
+    border:1px solid #BCCDF0;
+	width:255px !important;
+	margin-top:18px;
+	margin-left:20px;
+	margin-right:10px;
+  }
+  .gsc-search-button{
+    border:0 !important;
+    background-color: #ffffff !important;
+	color:#515151 !important;
+	margin-left:0 !important;
+	width:55px;
+	height:18px;
+	font-size:12px;
+	
+  }
+  .gsc-tabHeader.gsc-tabhInactive {
+    border-color: #E9E9E9;
+    background-color: #E9E9E9;
+  }
+  .gsc-tabHeader.gsc-tabhActive {
+    border-top-color: #FF9900;
+    border-left-color: #E9E9E9;
+    border-right-color: #E9E9E9;
+    background-color: #FFFFFF;
+  }
+  .gsc-tabsArea {
+    border-color: #E9E9E9;
+  }
+  
+  .gsc-webResult.gsc-result {
+      text-align:left !important;
+  }
+  .gsc-webResult.gsc-result:hover {
+    border-color: #FFFFFF;
+    background-color: #ffffff;
+  }
+  .gs-result .gs-title, .gs-result .gs-title * {
+    color: #629090 !important;
+    text-decoration:none !important;
+	      text-align:left !important;
+}
+  .gs-webResult.gs-result a.gs-title:link,
+  .gs-webResult.gs-result a.gs-title:link b {
+    color: #629090;
+	      text-align:left !important;
+  }
+  .gs-webResult.gs-result a.gs-title:visited,
+  .gs-webResult.gs-result a.gs-title:visited b {
+    color: #629090;
+	      text-align:left !important;
+  }
+  .gs-webResult.gs-result a.gs-title:hover,
+  .gs-webResult.gs-result a.gs-title:hover b {
+    color: #629090;
+	      text-align:left !important;
+  }
+  .gs-webResult.gs-result a.gs-title:active,
+  .gs-webResult.gs-result a.gs-title:active b {
+    color: #629090;
+  }
+  .gsc-cursor-page {
+    color: #629090;
+	      text-align:left !important;
+  }
+  a.gsc-trailing-more-results:link {
+    color: #629090;
+	      text-align:left !important;
+  }
+  .gs-webResult .gs-snippet {
+    color: #515151;
+  }
+  .gs-webResult div.gs-visibleUrl {
+    color: #629090;
+  }
+  .gs-webResult div.gs-visibleUrl-short {
+    color: #629090;
+  }
+  .gs-webResult div.gs-visibleUrl-short {
+    display: block;
+  }
+  .gs-webResult div.gs-visibleUrl-long {
+    display: none;
+  }
+  .gsc-cursor-box {
+    float:left;
+	text-align:left;
+	margin-top:20px;
+  }
+  .gsc-results .gsc-cursor-page {
+    border-color: #E9E9E9;
+    background-color: #ffffff;
+  }
+  .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+    color:#629090 !important;
+  
+  }
+  .gs-promotion {
+    border-color: #ffffff;
+    background-color: #ffffff;
+  }
+  .gs-promotion a.gs-title:link,
+  .gs-promotion a.gs-title:link *,
+  .gs-promotion .gs-snippet a:link {
+    color: #629090;
+	text-align:left !important;
+  }
+  .gs-promotion a.gs-title:visited,
+  .gs-promotion a.gs-title:visited *,
+  .gs-promotion .gs-snippet a:visited {
+    color: #629090;
+		text-align:left !important;
+  }
+  .gs-promotion a.gs-title:hover,
+  .gs-promotion a.gs-title:hover *,
+  .gs-promotion .gs-snippet a:hover {
+    color: #629090;
+		text-align:left !important;
+  }
+  .gs-promotion a.gs-title:active,
+  .gs-promotion a.gs-title:active *,
+  .gs-promotion .gs-snippet a:active {
+    color: #629090;
+		text-align:left !important;
+  }
+  .gs-promotion .gs-snippet,
+  .gs-promotion .gs-title .gs-promotion-title-right,
+  .gs-promotion .gs-title .gs-promotion-title-right *  {
+    color: #515151;
+		text-align:left !important;
+  }
+  .gs-promotion .gs-visibleUrl,
+  .gs-promotion .gs-visibleUrl-short {
+    color: #008000;
+  }
+  .gsc-clear-button{
+  display:none;
+  }
+  
+  .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+    color: #629090 !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+    color: #515151 !important;;
+    cursor: pointer;
+    display: inline;
+    margin-right: 8px;
+    text-decoration: none !important;
+}
+
+.gs-no-results-result .gs-snippet, .gs-error-result .gs-snippet {
+    background-color: #f8f8f8 !important;
+    border: 1px solid #f0f0f0 !important;
+    margin: 5px;
+    padding: 5px;
+}
+.gs-spelling a {
+    color: #515151;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+</style>	
+
+<script language="JavaScript" src="http://jc3.uol.com.br/includes/AC_RunActiveContent.js"></script>
+
+<script type='text/javascript' src='http://adserver.ne10.uol.com.br/arquivos/scripts/blogdojamildo.js'></script>
+<script>
+var banner_veiculo = 'blogdojamildo';
+var banner_canal = 0;
+var banner_secao = 0;
+var hitUnico = true;
+var sinc = new Array();
+var hitAd = new Array();
+</script>
+
+<script src="//www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1');
+
+      function inputFocus() {
+        document.getElementById('query-input').style['background'] = '';
+      }
+
+      function inputBlur() {
+        var queryInput = document.getElementById('query-input');
+        if (!queryInput.value) {
+          queryInput.style['background'] = '';
+        }
+      }
+
+      function init() {
+        google.search.CustomSearchControl.attachAutoCompletion(
+            '003745624397106113943:yuffm1sr2po',
+            document.getElementById('query-input'),
+            'two-page-form');
+        inputBlur();
+      }
+
+      function submitQuery() {
+        window.location = 'http://jc3.uol.com.br/blogs/blogjamildo/busca.php?q='
+            + encodeURIComponent(
+                document.getElementById('query-input').value);
+        return false;
+      }
+
+      google.setOnLoadCallback(init);
+</script>
+
+<div id="banner-full">
+
+<script LANGUAGE="JavaScript">
+<!--
+showBanner(1);
+//--> 
+</script>
+
+</div>
+  <!-- TOPO -->
+    <div id="topo">
+          <h1><a href="http://jc3.uol.com.br/blogs/blogjamildo"><img src="http://jc3.uol.com.br/blogs/blogjamildo/imagens/logo.jpg" alt="Blog de Jamildo 1" border="0"/></a></h1>
+		  <!--área de busca -->
+          <div id="busca">
+		<!--Banner Patrocínio-->
+		<div id="patrocinio1" style="margin:-11px 246px;">
+		<script language='Javascript' type='text/javascript'>
+		<!--
+		showBanner(8);
+		//-->
+		</script>
+		</div>
+		<form class="gsc-search-box" onsubmit="return submitQuery()">
+      			<input class="gsc-input" name="q"  id="query-input" onfocus="inputFocus();" onblur="inputBlur();" autocomplete="on" />
+      			<button class="gsc-search-button" type="submit">BUSCA</button>
+     		</form>
+		<!--Fim do Banner Patrocínio-->
+
+
+      </div>
+		
+  </div>
+
+<div id='dv-floater1'>
+<div id='floater1' style='height:auto;left:240px;position:absolute;top:250px;width:250px;z-index:999;'>
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(9);
+//-->
+</script>
+</div>
+</div>		<!--FIM DE TOPO -->
+		
+		<!-- CONTEUDO -->
+		<div id="conteudo">
+			<div id="coluna1">
+		
+<script type="text/javascript">
+$(document).ready(function(){
+	var urlAtual = window.location.href;
+	var canal = "index";
+	function getPosicao(arrayName,arrayItem)
+	{
+	  for(var i=0;i<arrayName.length;i++){ 
+	   if(arrayName[i]==arrayItem)
+	  return i;
+	  }
+	}
+	//Verifica se é um canal
+	if(urlAtual.indexOf('canais')>-1){
+		var arrUrl = urlAtual.split("/");
+		var posicaoCanal = getPosicao(arrUrl,"canais");
+		canal = arrUrl[posicaoCanal+1];
+	}else{
+	//Se não for canal ou é a index ou é uma galeria
+		if(urlAtual.indexOf('galerias')>-1){
+			canal = "galerias.php";
+		}else{
+			//é a index
+			canal = "index";
+		}
+	}
+	
+	$("#"+canal).addClass('clicada');
+
+   	
+
+	
+
+   
+});
+</script>
+
+<ul id="menu">
+		<li id="index">
+			<a href="http://jc3.uol.com.br/blogs/blogjamildo/index.php">Principal</a>
+		</li>
+			
+							<li id="artigos">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/artigos/index.php">Artigos</a>
+			</li>	
+					
+							<li id="charge">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/charge/index.php">Charge</a>
+			</li>	
+					
+							<li id="entrevista">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/entrevista/index.php">Entrevista</a>
+			</li>	
+					
+							<li id="noticias">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/index.php">Notícias</a>
+			</li>	
+					
+							<li id="enquete">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/enquete/index.php">Enquete</a>
+			</li>	
+					
+							<li id="galerias.php">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/galerias.php">Galerias</a>
+			</li>
+					
+							<li id="incivilidadenotransito">
+				<a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/incivilidadenotransito/index.php">Incivilidade no trânsito</a>
+			</li>	
+					
+			</ul>
+			
+			<!-- PARCEIROS -->
+			</div>
+			<div id="coluna2">
+			  <!-- ///////////////////  FIM DO POST /////////////////// -->
+<div class="post">
+				
+				<div class="chapeu">economia</div>
+                
+				<!--título do post -->
+				<h2>Desemprego da RMR atinge 13,5%</h2>
+
+				<!--data -->
+				<div class="data">POSTADO ÀS 07:49 EM 28 DE Novembro DE 2013</div>
+
+				<div id="redes">
+					<!-- Twitter -->
+					<div class="redes_botao">
+						<a href="http://twitter.com/share" class="twitter-share-button" data-text="Blog de Jamildo - Desemprego da RMR atinge 13,5%" data-url="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/desemprego_da_rmr_atinge_135_porcento_163292.php" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+					</div>
+
+					<!-- Facebook -->
+					<div class="redes_botao">
+						<iframe src="http://www.facebook.com/plugins/like.php?href=http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/desemprego_da_rmr_atinge_135_porcento_163292.php&layout=button_count&show_faces=true&width=300&action=recommend&font=arial&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
+					</div>
+				</div>
+				
+				<!-- área de foto -->
+        												
+				
+				<p style="text-align: justify;">
+	Do Jornal do Commercio desta quinta-feira (28).<br />
+	<br />
+	A taxa de desemprego no Grande Recife atingiu 13,5% em outubro. S&atilde;o 256 mil pessoas sem trabalho na regi&atilde;o metropolitana para 1,64 milh&atilde;o com alguma ocupa&ccedil;&atilde;o (com ou se carteira assinada). Os n&uacute;meros s&atilde;o da Pesquisa de Emprego e Desemprego (PED), divulgada ontem pelo Departamento Intersindical de Estat&iacute;stica e Estudos Socioecon&ocirc;micos (Dieese) e Ag&ecirc;ncia Condepe/Fidem.<br />
+	<br />
+	O levantamento apontou tamb&eacute;m para uma queda no rendimento m&eacute;dio nos &uacute;ltimos 12 meses. Para as pessoas ocupadas, com trabalho remunerado regular ou n&atilde;o, a queda foi de 2,5% para R$ 1.164 no m&ecirc;s passado. Os assalariados, funcion&aacute;rios com carteira assinada, obtiveram R$ 1.247, queda de 4% no per&iacute;odo de um ano. J&aacute; os aut&ocirc;nomos passaram a receber 3,8% (R$ 869).<br />
+	<br />
+	Para o diretor de Estudos e Pesquisas Socioecon&ocirc;micas da Ag&ecirc;ncia Condepe/Fidem, Rodolfo Guimar&atilde;es, a queda nos rendimentos &eacute; justificada tanto por um arrefecimento na economia, percebido nos &uacute;ltimos tr&ecirc;s anos, quanto por composi&ccedil;&otilde;es nos diversos segmentos empregadores. &quot;Desde a rotatividade de trabalhadores, com a sa&iacute;da de pessoas com maiores sal&aacute;rios para contrata&ccedil;&atilde;o de menores, at&eacute; o saldo das negocia&ccedil;&otilde;es coletivas, com um ganho real menor&quot;, pontuou.<br />
+	<br />
+	Dos segmentos que mais geraram vagas, ind&uacute;stria (seis mil) e com&eacute;rcio (seis mil) atestam que outubro, como in&iacute;cio de &uacute;ltimo trimestre, mant&eacute;m a tradi&ccedil;&atilde;o de &eacute;poca de aquecimento no mercado de trabalho.</p>
+				
+				
+				<!--rodapé do post -->
+				<div class="comentarios"> 
+				Postado por Paulo Veras | <a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/index.php">Notícias</a> | <a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/desemprego_da_rmr_atinge_135_porcento_163292.php">permalink </a>| <a href="javascript:self.print();">imprimir</a> | <a href="http://jc3.uol.com.br/blogs/blogjamildo/enviarAmigo.php?codigo=163292">enviar</a>
+                <div class="compartilhe">
+
+        <a target="_blank" href="http://del.icio.us/post?url=http://goo.gl/zyj9WL&title=Desemprego da RMR atinge 13,5%"><img border="0" alt="DELICIOUS" src="http://imagemjc.uol.com.br/imagem/icone_DELICIOUS.gif"/></a>
+        <a target="_blank" href="http://digg.com/submit?phase=2&url=http://goo.gl/zyj9WL&title=Desemprego da RMR atinge 13,5%"><img border="0" alt="DIGG" src="http://imagemjc.uol.com.br/imagem/icone_DIGG.gif"/></a>
+        <a target="_blank" href="http://www.newsvine.com/_tools/seed?popoff=0&u=http://goo.gl/zyj9WL"><img border="0" alt="NEWSVINE" src="http://imagemjc.uol.com.br/imagem/icone_NEWSVINE.gif"/></a>
+        <a target="_blank" href="http://www.stumbleupon.com/submit?url=http://goo.gl/zyj9WL"><img border="0" alt="STUMBLE" src="http://imagemjc.uol.com.br/imagem/icone_STUMBLE.gif"/></a>
+        <a target="_blank" href="https://favorites.live.com/quickadd.aspx?marklet=1&mkt=en-us&url=http://goo.gl/zyj9WL"><img border="0" alt="WINDOWS LIVE" src="http://imagemjc.uol.com.br/imagem/icone_LIVE.gif"/></a>
+        <a target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http://goo.gl/zyj9WL"><img border="0" alt="GOOGLE" src="http://imagemjc.uol.com.br/imagem/icone_GOOGLE.gif"/></a>
+        <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://goo.gl/zyj9WL"><img border="0" alt="FACEBOOK" src="http://imagemjc.uol.com.br/imagem/icone_FACEBOOK.gif"/></a>
+        <a target="_blank" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http://goo.gl/zyj9WL&t=Desemprego da RMR atinge 13,5%"><img border="0" alt="MYSPACE" src="http://imagemjc.uol.com.br/imagem/icone_MYSPACE.gif"/></a>
+        <a target="_blank" href="http://twitter.com/home?status=http://goo.gl/zyj9WL"><img border="0" alt="TWITTER" src="http://imagemjc.uol.com.br/imagem/icone_TWITTER.gif"/></a>
+	 <a target="_blank" href="http://promote.orkut.com/preview?nt=orkut.com&du=http://goo.gl/zyj9WL&tt=Desemprego da RMR atinge 13,5%"><img border="0" alt="ORKUT" src="http://jc3.uol.com.br/blogs/blogjamildo/imagens/icone-orkut.png"/></a>
+        </div>
+	    </div>
+				
+			  </div>
+				<iframe src="http://jc3.uol.com.br/blogs/blogjamildo/inclusao/inc.LinksPatrocinadosUolJamildo.php" width="500" height="300" border="0" frameborder="0" scrolling="no"></iframe>				<!-- ///////////////////  FIM DO POST /////////////////// -->
+				
+				
+				
+				
+								
+				
+				
+				<div id="comentario">
+				<a name="coments" id="comentarios"></a>
+									<a name="formulario" id="formulario"></a>
+					<div id="feedback-a" style="display:none">Enviando...</div>
+				  <div id="formulario">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+							<td>Nome:</td>
+							<td>
+							  <input type="text" name="txtNome" id="txtNome" /><span id="spTxtNome"></span>
+							</td>
+						  </tr>
+						  <!--<tr>
+							<td>Login:</td>
+							<td><input type="text" name="txtLogin" id="txtLogin" /><span id="spTxtLogin"></span></td>
+						  </tr>
+						  <tr>
+							<td>Senha:</td>
+							<td><input type="password" name="txtSenha" id="txtSenha" /><span id="spTxtSenha"></span></td>
+						  </tr>-->
+						  <tr>
+							<td>Email:</td>
+							<td><input type="text" name="txtEmail" id="txtEmail" /><span id="spTxtEmail"></span></td>
+						  </tr>	
+						  <tr>
+							<td>Validador:</td>
+							<td><img src="http://jc3.uol.com.br/blogs/anti-bot/image.php" align="absmiddle"/>&nbsp;<input name="txtCaptcha" id="txtCaptcha" type="tx" class="validador" maxlength="4" /><span id="spTxtCaptcha"></span></td>
+						  </tr>
+						  <tr>
+							<td>Coment&aacute;rio:</td>
+							<td><textarea id="txtTexto" name="txtTexto"></textarea><span id="spTxtTexto"></span></td>
+						  </tr>
+						  <tr>
+							<td>&nbsp;</td>
+							<td><button id="btEnviar">Enviar</button></td>
+						  </tr>
+						</table>
+						<div id="feedback-b"></div>
+					  <div id="normas">*O coment&aacute;rio &eacute; de total responsabilidade do internauta que
+						o inseriu. O Portal NE10 reserva-se o direito de n&atilde;o publicar
+						mensagens contendo palavras de baixo cal&atilde;o, publicidade, cal&uacute;nia,
+						inj&uacute;ria, difama&ccedil;&atilde;o ou qualquer conduta que possa ser
+						considerada criminosa. Para participar &eacute;  preciso ser um usu&aacute;rio
+						cadastrado. Se voc&ecirc; possui cadastro no Portal NE10, utilize
+						seu login e senha. Para cadastrar-se, clique <a href="http://jc.uol.com.br/grupo/central-do-usuario/cadastrar.php" target="_blank"><strong>aqui</strong></a> -
+					Este servi&ccedil;o &eacute; gr&aacute;tis. Para recuperar sua senha, clique <a href="http://jc.uol.com.br/grupo/central-do-usuario/recuperarSenha.php" target="_blank"><strong>aqui</strong></a>.</div>
+										</div>
+					
+					
+				</div>
+				<!-- ///////////////////  FIM DO COMENTÁRIOS /////////////////// -->
+<!--<div id="paginas"><a href="#">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a> | <a href="#">5</a> | <a href="#">Próximo</a></div>-->
+				
+				
+		  </div>
+<!-- ///////////////////  FIM DA COLUNA 2 /////////////////// -->				
+
+
+			<div id="coluna3">
+				    <div id="perfil"> <strong><a href="mailto:jamildo@ne10.com.br">Jamildo Melo</a></strong> <br>
+        é  editor do Blog com  <strong><a href="mailto:glopez@ne10.com.br">Gabriela L&oacute;pez</a></strong> e 
+				   <strong><a href="mailto:pveras@ne10.com.br">Paulo Veras</a></strong></div>
+
+
+
+ <div id='vitrine_topo'>
+<div class='cabecalho'>OFERTAS</div>
+
+
+
+
+	<div class='oferta'>
+		<div class='foto'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=65&prd=545&url=http%3A%2F%2Fne10delivery.ne10.uol.com.br%2F' target='_blank'><img src='http://jcadserver.uol.com.br/vitrinePortal/produto/imagens/a8df6715d7bb52d8d99e4fed9bf8efcc.jpg' width='50' height='50' border='0' /></a></div>
+        <div class='descricao'>
+            <span class='titulo'>NE10 DELIVERY</span>
+            <span class='detalhes'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=65&prd=545&url=http%3A%2F%2Fne10delivery.ne10.uol.com.br%2F' target='_blank'>Sair para jantar vai ser sua segunda opção.</a></span>
+        </div>
+    </div>
+
+
+
+
+	<div class='oferta'>
+		<div class='foto'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=66&prd=544&url=http%3A%2F%2Fne10delivery.ne10.uol.com.br%2F' target='_blank'><img src='http://jcadserver.uol.com.br/vitrinePortal/produto/imagens/a845d986580ba8ed8e0cf0a4c6f9d01e.jpg' width='50' height='50' border='0' /></a></div>
+        <div class='descricao'>
+            <span class='titulo'>NE10 DELIVERY</span>
+            <span class='detalhes'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=66&prd=544&url=http%3A%2F%2Fne10delivery.ne10.uol.com.br%2F' target='_blank'>Navegar deu fome? Aproveite e faça seu pedido.</a></span>
+        </div>
+    </div>
+
+
+
+
+	<div class='oferta'>
+		<div class='foto'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=67&prd=555&url=http%3A%2F%2Fprodutos.ne10.uol.com.br%2Fne10cursos%2Fuol-concursos-publicos%23topoCursos' target='_blank'><img src='http://jcadserver.uol.com.br/vitrinePortal/produto/imagens/38791c9152de854c9e3f6f5b2943ba8b.jpg' width='50' height='50' border='0' /></a></div>
+        <div class='descricao'>
+            <span class='titulo'>Concurso Público</span>
+            <span class='detalhes'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=67&prd=555&url=http%3A%2F%2Fprodutos.ne10.uol.com.br%2Fne10cursos%2Fuol-concursos-publicos%23topoCursos' target='_blank'>NE10 Cursos: estude online - apenas R$79,90/mês</a></span>
+        </div>
+    </div>
+
+
+
+
+	<div class='oferta'>
+		<div class='foto'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=68&prd=556&url=http%3A%2F%2Fne10cursos.notamaxima.com.br%2F' target='_blank'><img src='http://jcadserver.uol.com.br/vitrinePortal/produto/imagens/fb87a29cc1574650f58f36b81e00ba55.jpg' width='50' height='50' border='0' /></a></div>
+        <div class='descricao'>
+            <span class='titulo'>NE10 CURSOS</span>
+            <span class='detalhes'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=68&prd=556&url=http%3A%2F%2Fne10cursos.notamaxima.com.br%2F' target='_blank'>ENEM e Vestibular: Resolução de Questões</a></span>
+        </div>
+    </div>
+
+
+
+
+	<div class='oferta'>
+		<div class='foto'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=69&prd=570&url=http%3A%2F%2Fbit.ly%2Fjcvejadotz1' target='_blank'><img src='http://jcadserver.uol.com.br/vitrinePortal/produto/imagens/2e228d5b9c2dbb3c32ac2c5a8454fe0f.jpg' width='50' height='50' border='0' /></a></div>
+        <div class='descricao'>
+            <span class='titulo'>JC + VEJA + DOTZ</span>
+            <span class='detalhes'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=69&prd=570&url=http%3A%2F%2Fbit.ly%2Fjcvejadotz1' target='_blank'>Só 12x R$56,90 e ganhe DZ 1.500 (dotz)</a></span>
+        </div>
+    </div>
+
+
+
+
+	<div class='oferta'>
+		<div class='foto'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=70&prd=583&url=http%3A%2F%2Fbit.ly%2Fjccaraskitcopos' target='_blank'><img src='http://jcadserver.uol.com.br/vitrinePortal/produto/imagens/14d79bfa446ae17cb11ee3bd3017cbc4.jpg' width='50' height='50' border='0' /></a></div>
+        <div class='descricao'>
+            <span class='titulo'>JC + CARAS</span>
+            <span class='detalhes'><a href='http://jcadserver.uol.com.br/vitrinePortal/click.php?pos=70&prd=583&url=http%3A%2F%2Fbit.ly%2Fjccaraskitcopos' target='_blank'>12x R$58,50 e ganhe um Kit de Copos com 25 peças</a></span>
+        </div>
+    </div>
+
+<div id="iphone">
+ <a href="http://m.blogdejamildo.com.br"><img src="http://jc3.uol.com.br/blogs/blogjamildo/imagens/iphone.jpg" alt="iphone" border="0" /></a> 
+</div><div class="banner-quadrado"> 
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(18);
+//-->
+</script></div>
+<!-- MAIS COMENTADAS -->
+
+<ul id="recursos">
+  <li class="tipo-recurso">// mais comentados </li>
+    <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/contratacao_de_jose_dirceu_provoca_piadas_e_criticas_163296.php">Contratação de José Dirceu provoca piadas e críticas</a></li>
+    <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/geraldo_julio_sanciona_lei_que_regulamenta_uso_das_cinquentinhas_nesta_quinta_163297.php">Geraldo Julio sanciona lei que regulamenta uso das cinquentinhas nesta quinta</a></li>
+    <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/11/28/defesa_de_genoino_solicita_nova_avaliacao_medica_ao_stf_163291.php">Defesa de Genoino solicita nova avaliação médica ao STF</a></li>
+    <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/charge/2013/11/28/se_a_gente_nao_rir_amigo_adoece_163298.php">Se a gente não rir, amigo, adoece</a></li>
+  </ul>
+<br />
+<!-- fim arquivo -->
+
+
+      <!-- DESTAQUE -->
+            <ul id="recursos">
+        <li class="tipo-recurso">// destaques</li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/artigos/2013/11/11/sobre_criancas_e_cidadania_162453.php"> <img src="http://jc3.uol.com.br/blogs/imagem/destaque/325392e58e860e7fc9876a7f15684f9e.jpg" /> Manuela Dantas escreve sobre acessibilidade no Blog. Clique para ler</a></li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/04/17/recife_so_vai_deixar_de_ser_provincia_quando_investir_em_metro_149738.php"> <img src="http://jc3.uol.com.br/blogs/imagem/destaque/da8379e7713e94f3bfd64dc80a8b7c44.jpg" /> Recife só deixará de ser uma província quando investir em metrô</a></li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2013/08/21/geraldo_julio_envia_a_camara_projeto_para_colocar_devedores_nos_cadastros_negativos_157586.php"> <img src="http://jc3.uol.com.br/blogs/imagem/destaque/ea5af8b8b7c63c3fd967d8ab9ae4df9d.jpg" /> Geraldo envia à Câmara projeto para negativar devedores</a></li>
+              </ul>
+      <br />
+      <iframe scrolling="no"  style="width:100%;height:300px;border:0;background: " src="http://jc3.uol.com.br/blogs/blogjamildo/inclusao/inc.BoxFacebook.php">
+
+</iframe>
+<br/><br/><div id="twitter_div">
+	<ul id="recursos">
+		<li class="tipo-recurso">// twitter </li>
+	</ul> 
+	<ul id="twitter_update_list"></ul>
+	<div class="siga-me">
+		<a href="http://twitter.com/#!/blogdejamildo" >Siga-me no Twitter</a>
+	</div>
+</div>
+<br/>
+
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(19);
+//-->
+</script><br>
+<br>      <!-- ARQUIVO -->
+      <ul id="recursos">
+        <li class="tipo-recurso">// arquivo</li>
+		        <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/janeiro/index.php">.janeiro (822)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/fevereiro/index.php">.fevereiro (837)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/marco/index.php">.mar&ccedil;o (943)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/abril/index.php">.abril (1086)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/maio/index.php">.maio (1204)</a></li>
+				        <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/junho/index.php">.junho (1140)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/julho/index.php">.julho (1204)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/agosto/index.php">.agosto (1215)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/setembro/index.php">.setembro (1092)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/outubro/index.php">.outubro (1254)</a></li>
+						<li><a href="http://jc3.uol.com.br/blogs/blogjamildo/arquivo/2013/novembro/index.php">.novembro (793)</a></li>
+				      </ul>
+      <br />
+
+      <!-- TAGS -->
+ <ul id="recursos">
+        <li class="tipo-recurso">// tags </li>
+       	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags6.php" title="1 notícia(s)"  >.Imagens</a></li>
+	   	   <li class="tag-3"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags17.php" title="5 notícia(s)"  >.Recife</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags18.php" title="1 notícia(s)"  >.Olinda</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags33.php" title="1 notícia(s)"  >.Educação</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags61.php" title="2 notícia(s)"  >.Lula</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags68.php" title="1 notícia(s)"  >.Esportes</a></li>
+	   	   <li class="tag-1"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags88.php" title="13 notícia(s)"  >.política</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags94.php" title="1 notícia(s)"  >.Futebol</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags99.php" title="1 notícia(s)"  >.Justiça</a></li>
+	   	   <li class="tag-5"><a href="http://jc3.uol.com.br/blogs/blogjamildo/tag/tags108.php" title="1 notícia(s)"  >.justiça</a></li>
+	         </ul>
+      <br />
+	  <!--
+1 - 20 = 1
+21 - 35 = 2
+36 - 60 = 3
+61 - 90 = 4
+91 0 = 5
+-->
+      <!-- LINKS -->
+      <ul id="recursos">
+                <li class="tipo-recurso">// links </li>
+        		        <li><a href="http://www.excelencias.org.br/" target='_blank'>Acompanhe seu parlamentar</a></li>
+        		        <li><a href="http://www.amb.com.br/" target='_blank'>AMB</a></li>
+        		        <li><a href="http://www.alepe.pe.gov.br/" target='_blank'>Assembleia Legislativa</a></li>
+        		        <li><a href="http://www.bbc.co.uk/portuguese" target='_blank'>BBC Brasil</a></li>
+        		        <li><a href="http://www.beatlestube.net/" target='_blank'>Beatles Tube</a></li>
+        		        <li><a href="http://afinaldecontas.blogfolha.uol.com.br/" target='_blank'>Blog Afinal de Contas</a></li>
+        		        <li><a href="http://www.divanecarvalho.com.br" target='_blank'>Blog da Divane Carvalho</a></li>
+        		        <li><a href="http://linkpropaganda.com.br/" target='_blank'>Blog da Link</a></li>
+        		        <li><a href="http://www.institutomauriciodenassau.com.br/blog" target='_blank'>Blog da Nassau</a></li>
+        		        <li><a href="http://www.antoniomagalhaes.com.br" target='_blank'>Blog de Antônio Magalhães</a></li>
+        		        <li><a href="http://jc3.uol.com.br/blogs/blogcma/index.php" target='_blank'>Blog de Ciência e Meio Ambiente</a></li>
+        		        <li><a href="http://www.interblogs.com.br/homerofonseca/" target='_blank'>Blog de Homero Fonseca</a></li>
+        		        <li><a href="http://www.inaldosampaio.com.br/" target='_blank'>Blog de Inaldo Sampaio</a></li>
+        		        <li><a href="http://www.marietaborges.blogspot.com.br" target='_blank'>Blog de Marieta Borges</a></li>
+        		        <li><a href="http://oglobo.globo.com/pais/noblat/" target='_blank'>Blog de Ricardo Noblat</a></li>
+        		        <li><a href="http://www.planetarei.com.br/100anos/index.htm" target='_blank'>Blog do Beto (músicas)</a></li>
+        		        <li><a href="http://www.carlosbritto.com/" target='_blank'>Blog do Carlos Britto</a></li>
+        		        <li><a href="http://www.blogdocastanha.com/?paged=2" target='_blank'>Blog do Castanha</a></li>
+        		        <li><a href="http://www.zedirceu.com.br/" target='_blank'>Blog do Dirceu</a></li>
+        		        <li><a href="http://www.blogdogabrieldiniz.com" target='_blank'>Blog do Gabriel Diniz</a></li>
+        		        <li><a href="http://josiasdesouza.folha.blog.uol.com.br" target='_blank'>Blog do Josias</a></li>
+        		        <li><a href="http://www.lucianosiqueira.blogspot.com/" target='_blank'>Blog do Luciano Siqueira</a></li>
+        		        <li><a href="http://blog.planalto.gov.br/" target='_blank'>Blog do Planalto</a></li>
+        		        <li><a href="http://blogdoprotogenes.com.br/" target='_blank'>Blog do Protógenes</a></li>
+        		        <li><a href="http://blog.josesaramago.org" target='_blank'>Blog do Saramago</a></li>
+        		        <li><a href="http://jc3.uol.com.br/blogs/blogdotorcedor/" target='_blank'>Blog do Torcedor</a></li>
+        		        <li><a href="http://www.blogdoturismope.com.br/" target='_blank'>Blog do turismo</a></li>
+        		        <li><a href="http://blogs.estadao.com.br/radar-politico/" target='_blank'>Blog Radar político</a></li>
+        		        <li><a href="http://vivapernambuco.com.br/site/" target='_blank'>Blog Viva Pernambuco</a></li>
+        		        <li><a href="http://www.cafecolombo.com.br/" target='_blank'>Café Colombo</a></li>
+        		        <li><a href="http://www.camara.gov.br/" target='_blank'>Câmara dos Deputados</a></li>
+        		        <li><a href="http://www.camara.recife.pe.gov.br/" target='_blank'>Câmara Municipal do Recife</a></li>
+        		        <li><a href="http://www.olhonu.fot.br/carnaval/" target='_blank'>Carnaval de Pernambuco</a></li>
+        		        <li><a href="http://www.cartacapital.com.br/app/index.jsp" target='_blank'>Carta Capital</a></li>
+        		        <li><a href="http://www.chargeonline.com.br/" target='_blank'>Charge online</a></li>
+        		        <li><a href="http://www.comunique-se.com.br/" target='_blank'>Comunique-se</a></li>
+        		        <li><a href="http://www2.camara.gov.br/" target='_blank'>Congresso Nacional</a></li>
+        		        <li><a href="http://www.conjur.com.br/" target='_blank'>Consultor Jurídico</a></li>
+        		        <li><a href="http://contasabertas.uol.com.br/asp/" target='_blank'>Contas Abertas</a></li>
+        		        <li><a href="http://www.dinheiropublico.com.br" target='_blank'>Controle Social do Dinheiro Público</a></li>
+        		        <li><a href="www.fichapolitica.com.br" target='_blank'>Ficha Política</a></li>
+        		        <li><a href="http://news.google.com.br" target='_blank'>Google News</a></li>
+        		        <li><a href="http://www.impostometro.com.br" target='_blank'>Impostômetro</a></li>
+        		        <li><a href="http://www.ipernambuco.com.br" target='_blank'>Ipernambuco</a></li>
+        		        <li><a href="http://jornalismomovel.blogspot.com" target='_blank'>Jornalismo Móvel</a></li>
+        		        <li><a href="http://desdecuba.com/generaciony/" target='_blank'>Liberdade para Cuba</a></li>
+        		        <li><a href="http://amigosdatamarineira.blogspot.com/" target='_blank'>Loucos pela Tamarineira</a></li>
+        		        <li><a href="http://www.mpt.gov.br" target='_blank'>Ministério Público do Trabalho</a></li>
+        		        <li><a href="http://www.pgr.mpf.gov.br" target='_blank'>Ministério Público Federal</a></li>
+        		        <li><a href="http://noticias.uol.com.br/escandalos-congresso" target='_blank'>Monitor de escândalos</a></li>
+        		        <li><a href="http://www.mp.pe.gov.br/" target='_blank'>MP Estadual</a></li>
+        		        <li><a href="http://www.nanihumor.com/" target='_blank'>Nani, humor</a></li>
+        		        <li><a href="http://www.observadorpolitico.org.br/" target='_blank'>Observador político</a></li>
+        		        <li><a href="http://www.ordemlivre.org/" target='_blank'>Ordem livre</a></li>
+        		        <li><a href="http://www.brasil.gov.br/pac/.arquivos/relatorioPE_090409.pdf" target='_blank'>PAC em Pernambuco</a></li>
+        		        <li><a href="http://www.brasil.gov.br/pac/" target='_blank'>PAC pelo Brasil</a></li>
+        		        <li><a href="http://www.picturapixel.com/blog/" target='_blank'>Pictura pixel</a></li>
+        		        <li><a href="http://www.vermelho.org.br/base.asp" target='_blank'>Portal Vermelho</a></li>
+        		        <li><a href="http://www.suape.pe.gov.br/index.asp" target='_blank'>Porto de Suape</a></li>
+        		        <li><a href="http://spce2010.tse.jus.br/spceweb.consulta.prestacaoconta2010/pesquisaCandidato.jsp" target='_blank'>Prestação de contas dos candidatos</a></li>
+        		        <li><a href="http://www.redeprevidencia.blogspot.com.br/" target='_blank'>Rede Previdência</a></li>
+        		        <li><a href="http://br.reuters.com/" target='_blank'>Reuters</a></li>
+        		        <li><a href="http://revistaogrito.com" target='_blank'>Revista O Grito</a></li>
+        		        <li><a href="http://www.sds.pe.gov.br/" target='_blank'>Secretaria de Defesa Social</a></li>
+        		        <li><a href="http://www.senado.gov.br/" target='_blank'>Senado</a></li>
+        		        <li><a href="http://www.psdb.org.br/" target='_blank'>Site oficial do PSDB</a></li>
+        		        <li><a href="http://www.pt.org.br/portalpt/" target='_blank'>Site oficial do PT</a></li>
+        		        <li><a href="http://www.stf.jus.br/" target='_blank'>STF</a></li>
+        		        <li><a href="http://www.stj.gov.br/" target='_blank'>STJ</a></li>
+        		        <li><a href="http://www.tjpe.jus.br/" target='_blank'>TJPE</a></li>
+        		        <li><a href="http://www.todaformadeamor.com.br" target='_blank'>Toda forma de amor</a></li>
+        		        <li><a href="http://www.transparencia.org.br/" target='_blank'>Transparência Brasil</a></li>
+        		        <li><a href="http://www.tre-pe.gov.br/home_internet/" target='_blank'>TRE</a></li>
+        		        <li><a href="http://www.trf5.jus.br/" target='_blank'>TRF5</a></li>
+        		        <li><a href="http://www.tse.gov.br/" target='_blank'>TSE</a></li>
+        		        <li><a href="http://vejaonline.abril.com.br/notitia/servlet/newstorm.ns.presentation.NavigationServlet?publicationCode=1" target='_blank'>Veja</a></li>
+              </ul>
+      <br />
+      
+            <ul id="recursos">
+        <li class="tipo-recurso">// especiais </li>
+                <li><a href="http://jc3.uol.com.br/blogs/blogjamildo/canais/noticias/2010/07/15/tres_produtoras_de_shows_fantasmas_sao_na_realidade_uma_so_walter_shows_usou_as_outras_duas_produtoras_como_laranjas_75483.php"><strong>Showgate da Empetur</strong><br />
+          Showgate da Empetur</a></li>
+                <li><a href="http://p.download.uol.com.br/jc/HTML_PORTAL/cotidiano/pacto_pela_vida.pdf"><strong>Pacto pela vida</strong><br />
+          Leia a integra aqui</a></li>
+              </ul>
+      <br />
+      <script language='Javascript' type='text/javascript'>
+<!--
+showBanner(20);
+//-->
+</script>	 <br/><br/>	  		</div>
+		</div>
+<!-- ////////////////////////// FIM DE CONTEUDO //////////////////////////////// -->
+
+	<!-- RODAPÉ -->
+	<div id="rodape">
+		<!--<ul id="menu-rodape1">
+  <li class="tipo-menu-rodape">// menu</li>
+  <li> <a href="http://jc3.uol.com.br/blogs/blogcma/index.php">Principal</a> </li>
+</ul>
+<ul id="menu-rodape2">
+  <li class="tipo-menu-rodape">// arquivo</li>
+  <li><a href="#">.janeiro</a></li>
+  <li><a href="#">.fevereiro</a></li>
+  <li><a href="#">.mar&ccedil;o</a></li>
+  <li><a href="#">.abril</a></li>
+  <li><a href="#">.maio</a></li>
+  <li><a href="#">.junho</a></li>
+</ul>
+<ul id="menu-rodape3">
+  <li class="tipo-menu-rodape">// tags </li>
+  <li class="tag-5"><a href="#">.moda</a></li>
+  <li class="tag-4"><a href="#">.brasil</a></li>
+  <li class="tag-3"><a href="#">.estilo</a></li>
+  <li class="tag-2"><a href="#">.elite</a></li>
+  <li class="tag-1"><a href="#">.flash</a></li>
+  <li class="tag-1"><a href="#">.faculdade</a></li>
+  <li class="tag-2"><a href="#">.androgino</a></li>
+  <li class="tag-3"><a href="#">.futebol</a></li>
+  <li class="tag-4"><a href="#">.guerra</a></li>
+  <li class="tag-5"><a href="#">.madame</a></li>
+</ul>-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1660854-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript" src="http://imagemjc.uol.com.br/js/twitter.js"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/blogdejamildo.json?callback=twitterCallback2&amp;count=3"></script>	</div>
+	<!--FIM DE RODAPÉ -->	
+
+	</div>
+<!--  BARRA FULL  //-->
+<script language='Javascript' type='text/javascript'>
+<!--
+showBanner(3);
+//-->
+</script><script type="text/javascript">
+	countHit(hitAd,1);
+</script>
+
+<!-- SiteCatalyst code version: H.19.3. Copyright 1997-2009 Omniture, Inc. More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="http://me.jsuol.com/omtr/jconline.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.19.3. --></body>
+</html>
+<!-- estática 28-11-2013 07:50:13 -->

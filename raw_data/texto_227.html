@@ -1,0 +1,1399 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>
+	TNPetr&oacute;leo - Not&iacute;cia - Lobão diz que considera campanha de economia de energia para a Copa
+</title>
+
+	
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="pt-br" />
+	<meta name="keywords" content="petr&oacute;leo, g&aacute;s, biocombust&iacute;veis, revista, Eletricidade" />
+	<meta name="description" content="Tn Petr&oacute;leo - A primeira revista brasileira voltada exclusivamente para o setor de petr&oacute;leo, g&aacute;s e biocombust&iacute;veis" />
+	<meta  name="REVISIT-AFTER" content="2 days" />
+	<meta name="google-site-verification" content="L7K_WvTJnqjuIB2X49wRpHJXtwXJxiK8GRJTO4hEtH8" />
+
+	
+		
+        <meta property='og:title'        content='Lobão diz que considera campanha de economia de energia para a Copa'/>
+        <meta property='og:url'          content='http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/'/>
+        <meta property='og:image'        content='http://tnpetroleo.com.br{{STATIC_URL}}css/layout/masterpage/logo.png'/> 
+        <meta property='og:site_name'    content=''/>
+        <meta property='og:description'  content=''/>
+        
+	
+
+
+	
+	<link rel="stylesheet" type="text/css" href="/static/css/layout.css?rev=16" media="screen"/>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/layout-print.css?rev=6" media="print"/>
+	<link rel="stylesheet" type="text/css" href="/static/jquery/jquery-ui/css/smoothness/jquery-ui-1.8.16.custom.css"/>
+
+
+
+	
+	<script language="javascript" type="text/javascript" src="/static/jquery/jquery-1.7.1.min.js"></script>
+	<script language="javascript" type="text/javascript" src="/static/js/functions.js"></script>
+	<script language="javascript" type="text/javascript" src="/static/js/swfobject.js"></script>
+	
+	
+	<script language="javascript" type="text/javascript" >
+		// <![CDATA[
+		
+function abrir(){
+	$('#nome').val('');
+	$('#email').val('');
+	$('#amigo').val('');
+	$('#amigo_email').val('');
+	$('#comentario').val('');
+	$( "#dialog" ).dialog("open");
+}
+
+function enviar_email(){
+	$.ajax({
+	  url: '/enviar-amigo/',
+	  type: "POST",
+	  data: ({nome:$('#nome').val(),email:$('#email').val(),amigo:$('#amigo').val(),amigo_email:$('#amigo_email').val(),comentario:$('#comentario').val(),csrfmiddlewaretoken:$("input[name='csrfmiddlewaretoken']").val(),obj:29749}),
+	  dataType : "json",
+	  success: function(data) {
+	  	$( "#dialog" ).dialog('close');
+		alert(data.message);
+	  },
+	  error:function (xhr, ajaxOptions, thrownError){
+		alert(xhr.responseText);
+
+	  }
+	});
+}
+
+		jQuery(document).ready(function($) {
+			if(screen.width <= 1024){
+				
+					$('#bg-footer').width(1227);
+				
+			}
+			if($('#publicidade-lateral').height() > $('#content').height()){
+				$('#content').css('min-height', $('#publicidade-lateral').height() + 20);
+			}
+
+			//default text
+			defaultText($('#q'), 'digite o que procura');
+			defaultText($('#q-2'), 'digite o que procura');
+			$('#q').keyup(function(e) {
+			    if(e.keyCode == 13) {
+			    	document.getElementById('form-search').submit();
+			    }
+			});
+			$('#q-2').keyup(function(e) {
+			    if(e.keyCode == 13) {
+			    	document.getElementById('form-search-2').submit();
+			    }
+			});
+			
+	/*Janelas*/
+	$('#fieldset-veja-tambem').fieldset();
+	$('#janela-mais-lidas').janela({img_title:"/static/css/layout/masterpage/mais.png"});
+	$( "#dialog" ).dialog({
+		autoOpen: false,
+		width:360,
+        modal: true
+	});
+	$('#enviar').button();
+	
+	
+
+
+
+		});
+		// ]]>
+	</script>
+
+	<script language="javascript" type="text/javascript" src="/static/jquery/plugins/fieldset/fieldset.js"></script>
+	<script language="javascript" type="text/javascript" src="/static/jquery/plugins/janela/janela.js"></script>
+	<script type="text/javascript" src="/static/jquery/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="/static/jquery/jquery-ui/i18n/ui.datepicker-pt-BR.js"></script>
+	<script type="text/javascript" src="/static/flowplayer/flowplayer-3.2.11.min.js"></script>
+
+	<!--[if lte IE 6]>
+		<script src="/static/ie6/warning.js"></script><script>window.onload=function(){e("/static/ie6/")}</script>
+	<![endif]-->
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-1257939-1']);
+  	  _gaq.push(['_setDomainName', 'tnpetroleo.com.br']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</head>
+<body>
+	<div id="page" style="width:1227px;">
+		
+		<div id="publicidade-lateral">
+			
+				<div id="place-holder-64" style=" width:213px; height:210px; ">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/3k-a010fc58f0d6d0027c6c/" target="_blank">
+	
+		
+			<img src="/media/publicidade/aveva_banner_ad_2014_avp_213x210a_tnpb_0314.gif" width="213" height="210" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-71" style=" width:213px; height:140px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/4z-d3a4fe054124f5344f29/" target="_blank">
+	
+		
+			<img src="/media/publicidade/banner_italbronze.gif" width="213" height="140" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-73" style=" width:213px; height:160px; margin-top:10px;">
+					
+
+
+
+	
+	
+		<div style=" width:213px; height:160px; overflow:hidden;">
+			﻿<!--
+Advertiser: HP (361)
+Campaign: Plotter_Fev14 (13667)
+Placement: TN Petróleo - Top Bronze - T2500 - 1 (155722)
+Site: TN Petróleo (2295)
+Size: 213x140
+Channel: Home Page (14892)
+-->
+
+<SCRIPT type="text/javascript">
+var ADM_iq = '//ia.nspmotion.com';
+try { ADM_iq = (document.location.protocol=='https:'?'https:':'http:')+ADM_iq } catch(e){}
+document.write('<scr'+'ipt type="text/javascr'+'ipt" src="'+ADM_iq+'/delivery/?p=155722&sc=14892&r='+Math.round(Math.random()*99999)+'"></scr'+'ipt>');
+</SCRIPT>
+
+<NOSCRIPT>
+<iframe src="//ia.nspmotion.com/delivery-noscript/?p=155722&sc=14892" width="213" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true"></iframe>
+</NOSCRIPT>
+
+		</div>
+	
+	
+
+
+
+				</div>
+			
+				<div id="place-holder-69" style=" width:213px; height:140px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/76-fd04811af7c20ba68d6a/" target="_blank">
+	
+		
+			<img src="/media/publicidade/tn-petroleo213x140px_oil-gas_1.gif" width="213" height="140" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-55" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/75-94a12b869aabd688877b/" target="_blank">
+	
+		
+			<img src="/media/publicidade/novobanner_tnpetroleo_213x70.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-59" style=" width:213px; height:420px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6s-4f9f48b90bd42e1c1bcf/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/da/0c/da0c6ed6cc0d6ce880737dab3d7d6fe6.jpg" width="213" height="420" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-36" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/1g-445e62c40d6181c542b5/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/06/53/0653660366fff3e59ed85394e2f6ae2a.jpg" width="213" height="70" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-68" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/70-25fda7da8e5fdcbcc069/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/21/f7/21f7a9d6f1acb8b221d2b7052a7939f5.jpg" width="213" height="70" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-37" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6i-71eab9922c048f3f5ca6/" target="_blank">
+	
+		
+			<img src="/media/publicidade/cog14-_213x70_tnpetoleo.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-38" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6j-cb708dc9b802a3fd3c43/" target="_blank">
+	
+		
+			<img src="/media/publicidade/pre-salt-tech-2013-tn-website-mini-banner_1.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-42" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	
+		<strong>Voc&ecirc; precisa atualizar a vers&atilde;o de seu Flash Player</strong>
+	
+	<script type="text/javascript">
+		// <![CDATA[
+		
+		var so = new SWFObject("/media/publicidade/tn-petroleo_site.swf", "flash-place-holder-42", "213", "70", "9");
+		so.addParam("wmode", "opaque");
+		so.addParam("scale", "noscale");
+		
+			so.write("place-holder-42");
+			
+		
+		$('#place-holder-42').mousedown(function (e){
+			$.ajax('/anunciar/rastreador-publicidade/1/71-492e4f76a7469696ac2e/');
+		});
+
+		// ]]>
+	</script>
+
+
+
+				</div>
+			
+				<div id="place-holder-40" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6f-14855215886102acf166/" target="_blank">
+	
+		
+			<img src="/media/publicidade/rg-banner-tnp-newsletter-213x70-frames.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-41" style=" width:213px; height:140px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/5w-b75a2757a9721a721fff/" target="_blank">
+	
+		
+			<img src="/media/publicidade/banner-tn-petroleo-santos-offshore.gif" width="213" height="140" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-48" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6o-a7a08078d7351a207aa5/" target="_blank">
+	
+		
+			<img src="/media/publicidade/dben77_banner_213x70.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-49" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6p-7b047f0f8889fa7ccd17/" target="_blank">
+	
+		
+			<img src="/media/publicidade/dben85_213x70.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-35" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/78-5bf6be8585e1a7323294/" target="_blank">
+	
+		
+			<img src="/media/publicidade/ex0900814_213x70.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-70" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/77-d49cec8e25f5717035c7/" target="_blank">
+	
+		
+			<img src="/media/publicidade/gas_summit_2014_213x70.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-43" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6t-920193d446b1c70cf536/" target="_blank">
+	
+		
+			<img src="/media/publicidade/lngamericas_213x70_tn-petroleo.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-52" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/59-2033df7ca11e82ae402d/" target="_blank">
+	
+		
+			<img src="/media/publicidade/21-wpc-213x70.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-60" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6w-705b11b17713bd67cbb0/" target="_blank">
+	
+		
+			<img src="/media/publicidade/marintec_213x70_1.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-56" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/62-8e3f344b954091e85f91/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/f5/1a/f51afa83c536f7d056edca6b87192c32.jpg" width="213" height="70" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+				</div>
+			
+				<div id="place-holder-39" style=" width:213px; height:70px; margin-top:10px;">
+					
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6m-5e04da8c5b226a917939/" target="_blank">
+	
+		
+			<img src="/media/publicidade/igrc2014_banner_animation.gif" width="213" height="70" alt="" title=""/>
+		
+	
+	</a>
+
+
+
+				</div>
+			
+		</div>
+		
+		<div id="page-content">
+			<div id="fast-access">
+				<img src="/static/css/layout/masterpage/acesso-redes.png" alt="acesso a redes sociais"/>
+				<ul>
+					<li><a href="https://twitter.com/#!/tnpetroleo" title="Twitter" target="_blank"><img src="/static/css/layout/masterpage/twitter-bird-white-on-blue-tn.png" alt="twitter"/></a></li>
+					<li><a href="http://www.youtube.com/user/VideoTNPetroleo" title="Youtube" target="_blank"><img src="/static/css/layout/masterpage/youtube.png" alt="Youtube"/></a></li>
+					<li><a href="http://www.linkedin.com/company/2061630?trk=tyah" title="Linkedin" target="_blank"><img src="/static/css/layout/masterpage/in.png" alt="Linkedin"/></a></li>
+					<li><a href="http://www.flickr.com/photos/tnpetroleo" title="flickr" target="_blank"><img src="/static/css/layout/masterpage/flickr.png" alt="flickr"/></a></li>
+					
+				</ul>
+				<img src="/static/css/layout/masterpage/conecte-se.png" alt="conecte-se a TN"/>
+				<ul>
+					<li><a class="cor_amarelo" href="/revistas/" title="Ver todas edi&ccedil;&otilde;es"><img src="/static/css/layout/masterpage/baixar-pdf.png" alt="ver todas"/></a></li>
+					
+					<li><a href="javascript:showModal('#ultima-versao-online');" title="Veja a vers&atilde;o online"><img src="/static/css/layout/masterpage/login.png" alt="vers&atilde;o online"/></a></li>
+					
+					<li><a href="/rss/" title="Rss"><img src="/static/css/layout/masterpage/rss.png" alt="Rss"/></a></li>
+				</ul>
+				<img src="/static/css/layout/masterpage/central-anunciante.png" alt="central de anunciante"/>
+				<ul>
+					<li><a href="/anunciar/portal/acessos" title="Quero anunciar no site"><img src="/static/css/layout/masterpage/a-portal.gif" alt="anunciar no site"/></a></li>
+					<li><a href="/anunciar/revista/formatos" title="Quero anunciar na revista"><img src="/static/css/layout/masterpage/a-revista.gif" alt="anunciar na revista"/></a></li>
+
+				</ul>
+			</div>
+			<div id="content">
+				<div id="topo-logo">
+					<a href="/" title="Ir Para Capa">
+						<img id="logo" src="/static/css/layout/masterpage/logo15.jpg" alt="TN Petr&oacute;leo"/>
+					</a>
+					<div id="topo-logo-informacoes">
+						<div id="topo-info-assinar">
+							<p><strong>Assine a TN Petr&oacute;leo</strong></p>
+							<p><span style="font-size:8pt;">APENAS R$ 145,00 ANUAL
+assinaturas@tnpetroleo.com.br</span></p>
+							<a class="cor_amarelo" href="/revistas/assinatura/">CLIQUE AQUI E ASSINE</a >
+							<a href="/revistas/assinatura/"><img src="/static/css/layout/masterpage/check.png" alt="asssinar revista"/></a>
+						</div>
+						<img style="display:block; margin-left:290px;" src="/static/css/layout/masterpage/engenheiro.png" alt="engenheiro"/>
+					</div>
+					<img id="separador" style="display:block; float:left; margin-left:5px;" src="/static/css/layout/masterpage/sep-engenheiro.png" alt="separador"/>
+					<div id="topo-logo-ultima-revista">
+						
+						<div id="topo-info-ult-rev">
+							<p><strong>Confira a &uacute;ltima edi&ccedil;&atilde;o</strong></p>
+							<p><span style="font-size:7pt;">MARÇO - ABRIL <br/> ANO XIV 2014 | N&#176; 94</span></p>
+							<div style="width:140px; margin-left:20px; float:left;">
+								<a class="cor_amarelo" href="javascript:showModal('#ultima-versao-online');">VEJA A VERS&Atilde;O ONLINE</a >
+							</div>
+							<div id="ultima-versao-online" class="modal_window">
+								<a href="#" class="modal_close">Fechar [X]</a><br />
+								<div id="ultima-versao-online-container">
+									
+										<div class="cor_azul" style="padding:40px; text-align:center;">
+											Acesso gratuito. Fa&ccedil;a o seu <a href="/login/" class="cor_azul" style="text-decoration:underline;">login</a>.
+										</div>
+									
+								</div>
+							</div>
+							<div style="margin-left:160px; width:15px; padding-top:2px;">
+								<a href="#"><img src="/static/css/layout/masterpage/mais.png" alt="ver a revista"/></a>
+							</div>
+							<div style="width:140px; margin-left:20px; float:left;">
+								<a class="cor_amarelo" href="/revistas/" style="font-size:8pt;">VER TODAS AS EDI&Ccedil;&Otilde;ES</a >
+							</div>
+							<div style="margin-left:160px; width:15px; padding-top:2px;">
+								<a href="/revistas/"><img src="/static/css/layout/masterpage/mais.png" alt="ver todas as edi&ccedil;&otilde;es"/></a>
+							</div>
+						</div>
+						
+						<img style="display:block; margin-left:190px;" src="/media/cache/23/20/2320874998314712eab29869f0ce6c80.jpg" width="113" height="94" alt="&uacute;ltima revista"/>
+						
+						
+					</div>
+				</div>
+				<div class="menu">
+	<div class="menu-left">
+		<div class="menu-right">
+			<ul class="menu">
+				
+					
+					<li style="padding-left:6px;"><a   href="/">HOME</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/institucional/">A TN PETRÓLEO</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/revistas/">REVISTA</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/video/">VÍDEOS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/revistas/assinatura/">ASSINATURA</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/glossario/">GLOSSÁRIO</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/whitepapers/">WHITE PAPERS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/banco-de-vagas/vagas/">BANCO DE VAGAS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/institucional/contato/">CONTATO</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/curso-e-evento/">CURSOS E EVENTOS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/arquivos/">ARQUIVOS</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+				<div class="painel-login">
+	
+		<a href="/login/" class="block float-right cor_branca perfil">Fa&ccedil;a o login</a>
+	
+	<img class="block float-right" style="margin:11px 5px 0 0;" src="/static/css/layout/masterpage/faca-login.png"  alt="fa&ccedil;a login"/>
+	
+	<img class="block float-left" style="margin:7px 0 0 20px;" src="/static/css/layout/masterpage/login.jpg" alt="login"/>
+	<div class="block float-left ola">Ol&aacute; <span class="cor_amarelo">Visitante</span>! Bem-vindo ao nosso site.</div>
+</div>
+
+				
+				<div id="top-ads" style="height:90px; margin:10px 0 5px 0;">
+					
+						<div id="place-holder-82" style="float:left; position:relative;  width:920px; height:90px; ">
+							
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/72-173f6404ae849be997f1/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/38/5d/385d3b5572832533101213a487de5c77.jpg" width="920" height="90" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+							
+								<img style="position:absolute; left:920px; top:0px;" src="/static/css/layout/masterpage/publicidade.gif" alt="publicidade"/>
+							
+						</div>
+					
+				</div>
+				
+				
+				<div class="content-search">
+	<div class="cor_azul search-label">BUSCAR</div>
+	<div class="search">
+		<form id="form-search" method="get" action="/busca/">
+			<input class="q" name="q" id="q" type="text"/>
+			<input name="models" type="hidden" value="noticia.noticia"/>
+
+		</form>
+		<a href="javascript:document.getElementById('form-search').submit();">
+			<img src="/static/css/layout/masterpage/lupa.gif" alt="buscar"/>
+		</a>
+	</div>
+	
+	<img style="display:block; float:left; margin:0 5px 0 5px;" src="/static/css/layout/masterpage/sep-menu.gif" alt="separador"/>
+	<div id="publicidade-busca-q" style="height:31px; float:left; width:283px;">
+		
+			<div id="place-holder-5" style="float:left;  width:135px; height:31px; ">
+				
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/17-e38e7cb8f8dc31ecf456/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/bb/24/bb244ed7febbec69d8068a7fece98a04.jpg" width="135" height="30" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+			</div>
+		
+			<div id="place-holder-7" style="float:left;  width:135px; height:31px; margin-left:10px;">
+				
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/16-54d4d116f9b7aacaacac/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/8c/8a/8c8a5b9a893bf7d28471724b1e2bcd4c.jpg" width="131" height="31" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+			</div>
+		
+	</div>
+	
+</div>
+
+				
+				
+				<div id="banner-interno-ads" style="height:70px; margin:10px 0 10px 0; padding:0 10px 0 10px;">
+					
+						<div id="place-holder-83" style="float:left; position:relative;  width:616px; height:70px; ">
+							
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6u-fc53e6af0acf43d8d115/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/80/70/8070c43bb18e78846ca63f3e21f935ce.jpg" width="616" height="70" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+							
+								<img style="position:absolute; left:616px; top:0px;" src="/static/css/layout/masterpage/publicidade.gif" alt="publicidade"/>
+							
+						</div>
+					
+						<div id="place-holder-84" style="float:left;   width:274px; height:70px; margin-left:10px;">
+							
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/6v-ff241366102f77eb517a/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/2c/6f/2c6f9e8e2fd0d9bbadcf4df59469408d.jpg" width="274" height="70" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+							
+						</div>
+					
+				</div>
+				
+				<div id="content-area">
+					
+	<div class="dot">
+		<a href="/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/" title="Eletricidade" class="bloco-noticia-categoria">
+			Eletricidade
+		</a>
+		<h2 class="cor_azul">Lobão diz que considera campanha de economia de energia para a Copa</h2>
+		<span class="italic cor_cinza">01/04/2014 | 11h10</span>
+	</div>
+	
+	<div style="margin: 0 0 10px 0; position: relative: z-index: 15000;" class="share-box">
+		
+			<div style="width: 100%; padding: 0px; " class="os3-social-share-box-wrapper">
+	<div style="height: 20px;" class="os3-share-box">
+		
+	<!--FACEBOOK -->
+	<div style="float:left;">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=221212054578800";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>	
+		<div class="fb-like"
+			data-href="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/"
+			data-text="Lobão diz que considera campanha de economia de energia para a Copa"
+			data-send="false"
+			data-layout="button_count"
+			data-width="40"
+			data-show-faces="false"
+			data-font="arial"
+			data-action="recommend">
+		</div>
+	</div>
+
+	<!-- TWITTER -->
+	<div style="margin: 0 0 0 4px; float:left;">
+		<a
+			href="https://twitter.com/share"
+			class="twitter-share-button"
+			data-url="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/"
+			data-text="Lobão diz que considera campanha de economia de energia para a Copa"
+			data-lang="pt_BR"
+			data-count="horizontal"
+			data-size="80">
+			Tweet
+		</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+	
+	<div style="margin: 0 0 0 -27px; float:left;">
+		<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: pt_BR</script>
+		<script type="IN/Share" data-url="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/" data-counter="right"></script>
+	</div>
+	
+	<!-- PININTEREST -->
+	<div style="margin: 0 0 0 4px; float:left;">
+		<a 
+			href="//pinterest.com/pin/create/button/?url=http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/&media=http://tnpetroleo.com.br{{STATIC_URL}}css/layout/masterpage/logo.png&description=Lobão diz que considera campanha de economia de energia para a Copa"
+			data-pin-do="buttonPin"
+			data-pin-config="beside">
+			<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+		</a>
+		<script type="text/javascript">
+		(function(d){
+		  var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+		  p.type = 'text/javascript';
+		  p.async = true;
+		  p.src = '//assets.pinterest.com/js/pinit.js';
+		  f.parentNode.insertBefore(p, f);
+		}(document));
+		</script>
+	</div>
+	
+	<!-- GOOGLE PLUS -->
+	<div style="margin: 0 0 0 4px;  float:left;">
+		<!-- Place this tag where you want the +1 button to render. -->
+		<div class="g-plusone" data-size="medium" data-href="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/"></div>
+		
+		<!-- Place this tag after the last +1 button tag. -->
+		<script type="text/javascript">
+		  window.___gcfg = {lang: 'pt_BR'};
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+	</div>
+	
+	<div style="clear: both;"></div>
+		
+
+	</div>
+</div>
+
+
+
+		
+		
+	</div>
+	
+	<div id="janela-mais-lidas" title="Mais Lidas" style="float:right; width:315px;">
+		<div style="padding: 0 10px 12px 15px;">
+			
+			
+				
+<div class="relative separador-x" style="padding:6px 0 6px 0;">
+	<a href="/noticia/consulado-britanico-do-rj-reune-gigantes-de-oleo-e-gas/" title="Consulado Britânico do RJ reúne gigantes de óleo e gás " class="block" style="width:100%; overflow: hidden;">
+		<span class="cor_azul bold block float-left absolute" style="left:0; font-size: 10pt; top: 25%;">1.</span>
+		<span class="block float-left" style="width: 260px; margin: 0 0 0 20px;">Consulado Britânico do RJ reúne gigantes de óleo e gás</span>
+	</a>
+</div>
+			
+				
+<div class="relative separador-x" style="padding:6px 0 6px 0;">
+	<a href="/noticia/ge-lanca-site-global-do-centro-de-pesquisas/" title="GE lança site global do Centro de Pesquisas" class="block" style="width:100%; overflow: hidden;">
+		<span class="cor_azul bold block float-left absolute" style="left:0; font-size: 10pt; top: 25%;">2.</span>
+		<span class="block float-left" style="width: 260px; margin: 0 0 0 20px;">GE lança site global do Centro de Pesquisas</span>
+	</a>
+</div>
+			
+				
+<div class="relative separador-x" style="padding:6px 0 6px 0;">
+	<a href="/noticia/petrobras-admite-transferir-producao-de-modulos-da-iesa/" title="Petrobras admite transferir produção de módulos da Iesa" class="block" style="width:100%; overflow: hidden;">
+		<span class="cor_azul bold block float-left absolute" style="left:0; font-size: 10pt; top: 25%;">3.</span>
+		<span class="block float-left" style="width: 260px; margin: 0 0 0 20px;">Petrobras admite transferir produção de módulos da Iesa</span>
+	</a>
+</div>
+			
+				
+<div class="relative separador-x" style="padding:6px 0 6px 0;">
+	<a href="/noticia/saudi-aramco-lidera-ranking-da-forbes/" title="Saudi Aramco lidera ranking das maiores petroleiras" class="block" style="width:100%; overflow: hidden;">
+		<span class="cor_azul bold block float-left absolute" style="left:0; font-size: 10pt; top: 25%;">4.</span>
+		<span class="block float-left" style="width: 260px; margin: 0 0 0 20px;">Saudi Aramco lidera ranking das maiores petroleiras</span>
+	</a>
+</div>
+			
+				
+<div class="relative " style="padding:6px 0 6px 0;">
+	<a href="/noticia/trinta-novas-plataformas-devem-ser-criadas-ate-2020/" title="Trinta novas plataformas devem ser criadas até 2020" class="block" style="width:100%; overflow: hidden;">
+		<span class="cor_azul bold block float-left absolute" style="left:0; font-size: 10pt; top: 25%;">5.</span>
+		<span class="block float-left" style="width: 260px; margin: 0 0 0 20px;">Trinta novas plataformas devem ser criadas até 2020</span>
+	</a>
+</div>
+			
+		</div>
+	</div>
+	<!--Veja Tambem-->
+	<div id="fieldset-veja-tambem" class="fieldset" style="margin-top:20px; width:315px; float:right; clear:right;" title="VEJA TAMB&Eacute;M">
+		
+			<div  class="dot">
+				<a href="/noticia/nivel-de-reservatorios-fica-abaixo-da-meta-prevista-pelo-ons/" title="Energia" class="bloco-noticia-categoria">
+	Energia
+</a>
+<a href="/noticia/nivel-de-reservatorios-fica-abaixo-da-meta-prevista-pelo-ons/" title="Nível de reservatórios fica abaixo da meta prevista pelo ONS">
+	<span class="cor_azul bloco-noticia-titulo">Nível de reservatórios fica abaixo da meta prevista pelo ONS</span>
+	<span class="bloco-noticia-texto">E chega a 36,27% da capacidade máxima.</span>
+	<span class="italic cor_cinza">01/04/2014 | 10h44</span>
+</a>
+			</div>
+		
+			<div  class="dot">
+				<a href="/noticia/producao-da-petrobras-no-brasil-cresce-07-em-fevereiro/" title="Petróleo e Gás " class="bloco-noticia-categoria">
+	Petróleo e Gás 
+</a>
+<a href="/noticia/producao-da-petrobras-no-brasil-cresce-07-em-fevereiro/" title="Produção da Petrobras no Brasil cresce 0,7% em fevereiro">
+	<span class="cor_azul bloco-noticia-titulo">Produção da Petrobras no Brasil cresce 0,7% em fevereiro</span>
+	<span class="bloco-noticia-texto">E totaliza 2 milhões 327 mil barris de boed.</span>
+	<span class="italic cor_cinza">01/04/2014 | 10h06</span>
+</a>
+			</div>
+		
+			<div  class="dot">
+				<a href="/noticia/petrobras-afirma-nao-achar-evidencias-de-pagamento-de-propina/" title="Irregularidades" class="bloco-noticia-categoria">
+	Irregularidades
+</a>
+<a href="/noticia/petrobras-afirma-nao-achar-evidencias-de-pagamento-de-propina/" title="Petrobras afirma não achar evidências de pagamento de propina">
+	<span class="cor_azul bloco-noticia-titulo">Petrobras afirma não achar evidências de pagamento de propina</span>
+	<span class="bloco-noticia-texto">Relatório será encaminhado à Controladoria-Geral da União.</span>
+	<span class="italic cor_cinza">31/03/2014 | 11h35</span>
+</a>
+			</div>
+		
+			<div >
+				<a href="/noticia/unidade-do-centro-vocacional-tecnologico-e-inaugurada-em-seropedica/" title="Formação" class="bloco-noticia-categoria">
+	Formação
+</a>
+<a href="/noticia/unidade-do-centro-vocacional-tecnologico-e-inaugurada-em-seropedica/" title="Unidade do Centro Vocacional Tecnológico é inaugurada em Seropédica">
+	<span class="cor_azul bloco-noticia-titulo">Unidade do Centro Vocacional Tecnológico é inaugurada em Seropédica</span>
+	<span class="bloco-noticia-texto">Investimentos chegaram a R$ 4,1 milhões.</span>
+	<span class="italic cor_cinza">31/03/2014 | 10h21</span>
+</a>
+			</div>
+		
+	</div>
+	<div class="separador-y bloco-leitura-noticia">
+		
+		
+		<p style="text-align: justify;">O Brasil pode lan&ccedil;ar uma campanha para encorajar os brasileiros a economizar energia el&eacute;trica, para que n&atilde;o haja interrup&ccedil;&otilde;es no fornecimento durante a Copa do Mundo. O ministro de Minas e Energia, Edison Lob&atilde;o, disse ser muito baixa a possibilidade de falta de energia el&eacute;trica antes do in&iacute;cio da esta&ccedil;&atilde;o chuvosa, em novembro, mas se o volume de chuvas n&atilde;o aumentar em abril ou maio e n&atilde;o houver uma recupera&ccedil;&atilde;o dos reservat&oacute;rios que suprem as usinas hidrel&eacute;tricas do pa&iacute;s, ele poder&aacute; pedir aos brasileiros que reduzam voluntariamente a demanda por energia.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">Leia a nota em: <a title="www.tnsustentavel.com.br" href="http://tnsustentavel.com.br/noticia/10110/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa" target="_blank"><strong>www.tnsustentavel.com.br</strong></a></p>
+		
+		<br/><br/>
+		
+		<span class="italic cor_azul">Fonte: TN Sustentável</span><br/>
+		
+		
+		
+		<div style="margin: 10px 0 10px 0;" class="share-box">
+			
+				<div style="width: 100%; padding: 0px; " class="os3-social-share-box-wrapper">
+	<div style="height: 20px;" class="os3-share-box">
+		
+	<!--FACEBOOK -->
+	<div style="float:left;">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=221212054578800";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>	
+		<div class="fb-like"
+			data-href="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/"
+			data-text="Lobão diz que considera campanha de economia de energia para a Copa"
+			data-send="false"
+			data-layout="button_count"
+			data-width="40"
+			data-show-faces="false"
+			data-font="arial"
+			data-action="recommend">
+		</div>
+	</div>
+
+	<!-- TWITTER -->
+	<div style="margin: 0 0 0 4px; float:left;">
+		<a
+			href="https://twitter.com/share"
+			class="twitter-share-button"
+			data-url="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/"
+			data-text="Lobão diz que considera campanha de economia de energia para a Copa"
+			data-lang="pt_BR"
+			data-count="horizontal"
+			data-size="80">
+			Tweet
+		</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+	
+	<div style="margin: 0 0 0 -27px; float:left;">
+		<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: pt_BR</script>
+		<script type="IN/Share" data-url="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/" data-counter="right"></script>
+	</div>
+	
+	<!-- PININTEREST -->
+	<div style="margin: 0 0 0 4px; float:left;">
+		<a 
+			href="//pinterest.com/pin/create/button/?url=http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/&media=http://tnpetroleo.com.br{{STATIC_URL}}css/layout/masterpage/logo.png&description=Lobão diz que considera campanha de economia de energia para a Copa"
+			data-pin-do="buttonPin"
+			data-pin-config="beside">
+			<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+		</a>
+		<script type="text/javascript">
+		(function(d){
+		  var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+		  p.type = 'text/javascript';
+		  p.async = true;
+		  p.src = '//assets.pinterest.com/js/pinit.js';
+		  f.parentNode.insertBefore(p, f);
+		}(document));
+		</script>
+	</div>
+	
+	<!-- GOOGLE PLUS -->
+	<div style="margin: 0 0 0 4px;  float:left;">
+		<!-- Place this tag where you want the +1 button to render. -->
+		<div class="g-plusone" data-size="medium" data-href="http://tnpetroleo.com.br/noticia/lobao-diz-que-considera-campanha-de-economia-de-energia-para-a-copa-1/"></div>
+		
+		<!-- Place this tag after the last +1 button tag. -->
+		<script type="text/javascript">
+		  window.___gcfg = {lang: 'pt_BR'};
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+	</div>
+	
+	<div style="clear: both;"></div>
+		
+
+	</div>
+</div>
+
+
+
+			
+		</div>
+		
+		<div id="print-wrapper" style="margin: 0 0 30px 0;">
+			<div style="float: right">
+				<a class="img" href="/cadastro/?news=s" title="Assine Nossa Newsletter">
+					<img style="vertical-align:baseline;" src="/static/css/layout/noticia/inscrever.gif" alt="newsletter"/>
+				</a>
+				<a class="img" href="url_feeds_url='categoria'" target="_blank" title="Assine Nosso Feed">
+					<img  style="margin-left:5px;" src="/static/css/layout/noticia/rss.gif" alt="rss"/>
+				</a>
+				<a class="img" href="javascript:window.print()" title="Imprimir Not&iacute;cia">
+					<img style="margin-left:5px;" src="/static/css/layout/noticia/print.gif" alt="imprimir"/>
+				</a>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		
+		<div style="clear:both; position:relative;">
+			<a class="img" href='javascript:abrir();'>
+				<img style="float:right;" src="/static/css/layout/noticia/icone.png" alt="enviar para amigos"/>
+			</a>
+			<a class="img" href='/'>
+				<img style="float:left;" src="/static/css/layout/noticia/voltar.gif" alt="voltar"/>
+			</a>
+		</div>
+		
+		
+	</div>
+
+<div id="dialog" title="Enviar por email">
+	<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='4da7cbf574a32f1d112feb46f37b1f9c' /></div>
+	Seu Nome: <br/>
+	<input type="text" id="nome" name="nome" style="width:300px;"/><br/>
+	Seu Email: <br/>
+	<input type="text" id="email" name="email" style="width:300px;" /><br/>
+	Nome do amigo: <br/>
+	<input type="text" id="amigo" name="amigo" style="width:300px;" /><br/>
+	Email do amigo: <br/>
+	<input type="text" id="amigo_email" name="amigo_email" style="width:300px;" /><br/>
+	Coment&aacute;rio: <br/>
+	<textarea id ="comentario" rows="30" cols="30" style="width:300px; height:100px;"></textarea>
+	<br/><br/>
+	<a href="javascript:enviar_email();" id="enviar">Enviar</a>
+</div>
+
+				</div>
+				
+				<div class="menu-b">
+	<div class="menu-left-b">
+		<div class="menu-right-b">
+			<ul class="menu">
+				
+					
+					<li style="padding-left:6px;"><a   href="/">HOME</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/institucional/">A TN PETRÓLEO</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/revistas/">REVISTA</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/video/">VÍDEOS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/revistas/assinatura/">ASSINATURA</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/glossario/">GLOSSÁRIO</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/whitepapers/">WHITE PAPERS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/banco-de-vagas/vagas/">BANCO DE VAGAS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/institucional/contato/">CONTATO</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/curso-e-evento/">CURSOS E EVENTOS</a></li>
+				
+					
+					<li class="sep ">|</li>
+					
+					<li ><a   href="/arquivos/">ARQUIVOS</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+				
+				
+				<div class="content-search">
+	<div class="cor_azul search-label">BUSCAR</div>
+	<div class="search">
+		<form id="form-search-2" method="get" action="/busca/">
+			<input class="q" name="q" id="q-2" type="text"/>
+			<input name="models" type="hidden" value="noticia.noticia"/>
+
+		</form>
+		<a href="javascript:document.getElementById('form-search-2').submit();">
+			<img src="/static/css/layout/masterpage/lupa.gif" alt="buscar"/>
+		</a>
+	</div>
+	
+	<img style="display:block; float:left; margin:0 5px 0 5px;" src="/static/css/layout/masterpage/sep-menu.gif" alt="separador"/>
+	<div id="publicidade-busca-q-2" style="height:31px; float:left; width:283px;">
+		
+			<div id="place-holder-15" style="float:left;  width:135px; height:31px; ">
+				
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/14-47de5831c1e835da0e61/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/ed/e0/ede07bb972b3adbd54367cf1202eacea.jpg" width="135" height="30" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+			</div>
+		
+			<div id="place-holder-16" style="float:left;  width:135px; height:31px; margin-left:10px;">
+				
+
+
+
+	<a href="/anunciar/rastreador-publicidade/1/15-32318e47022eccb93210/" target="_blank">
+	
+		
+			
+				<img src="/media/cache/9b/c5/9bc5a3da22ff487a8bc81628eee5ce60.jpg" width="131" height="31" alt="" title=""/>
+			
+		
+	
+	</a>
+
+
+
+			</div>
+		
+	</div>
+	
+</div>
+
+				
+			</div>
+		</div>
+	</div>
+	<div id="bg-footer">
+		<div id="page-footer" style="width:1227px;">
+			<div id="footer">
+				<div id="footer-title">
+					Copyright 2012 - Todos os direitos reservados à TN Petróleo - Benício Biz Editores Associados Ltda.
+				</div>
+				<div id="footer-subtitle">
+					Mapa do site
+				</div>
+				<div id="footer-middle">
+					<div class="col">
+						<h1 class="footer-t">A TN PETR&Oacute;LEO</h1>
+						<ul class="footer">
+							<li><a href="/institucional/" title="Quem somos">Quem somos</a></li>
+							<li><a href="/institucional/#nossosparceiros" title="Parceiros">Parceiros</a></li>
+							<li><a href="/institucional/#nossosclientes" title="Clientes">Clientes</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<h1 class="footer-t">ASSINATURA</h1>
+						<ul class="footer">
+							<li><a href="/revistas/assinatura/" title="assinar revista">Assinar</a></li>
+							<li><a href="/revistas/assinatura/?tipo=1" title="Renovar revista">Renovar</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<h1 class="footer-t">PRODUTOS</h1>
+						<ul class="footer">
+							<li>Mapas</li>
+							
+						</ul>
+					</div>
+					<div class="col">
+						<h1 class="footer-t">QUERO ANUNCIAR</h1>
+						<ul class="footer">
+							<li><a title="Anunciar no site" href="/anunciar/portal/acessos">Anunciar no Site</a></li>
+							<li><a title="Anunciar na Revista" href="/anunciar/revista/formatos">Anunciar na Revista</a></li>
+						</ul>
+					</div>
+					<div class="col" style="margin-right:0;">
+						<h1 class="footer-t">CONTATO</h1>
+						<ul class="footer">
+							<li><a title="Enviar uma mensagem" href="/institucional/contato/">Enviar uma mensagem</a></li>
+							<li><a title="Localiza&ccedil;&atilde;o" href="/institucional/contato/#venha">Localiza&ccedil;&atilde;o</a></li>
+
+						</ul>
+					</div>
+					<div class="col_l">
+						<img src="/static/css/layout/masterpage/footer-atendimento.gif" alt="atendimento"/><br/>
+						<span class="cor_amarelo">Atendimento ao Assinante</span><br/>
+						<img src="/static/css/layout/masterpage/fone.gif" alt="telefone tn petr&oacute;leo"/><br/>
+						Segunda a Sexta 8h &agrave;s 18h
+					</div>
+				</div>
+				<div id="footer-bottom">
+					<img src="/static/css/layout/masterpage/mundi.gif" alt="mapa mundi"/>
+					<p>
+						<strong class="cor_amarelo">RIO DE JANEIRO - RJ - BRASIL</strong><br/>
+						Rua do Ros&aacute;rio, n&#186; 99 - 7&#186; andar - Centro - Cep: 20041-004<br/><br/>
+						<a class="cor_amarelo" href="http://os3ti.com" target="_parent">Desenvolvido por OS3 Tecnologia da Informa&ccedil;&atilde;o Ltda</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal_mask"></div>
+	<script language="JavaScript" type="text/javascript">
+		// <![CDATA[
+		$('.modal_window .modal_close').click(function (e) {
+			e.preventDefault();
+			$('#modal_mask').hide();
+			$('.modal_window').hide();
+		});
+
+		$('#modal_mask').click(function () {
+			$(this).hide();
+			$('.modal_window').hide();
+		});
+		// ]]>
+	</script>
+</body>
+</html>
+
