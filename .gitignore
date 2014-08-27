@@ -1,0 +1,5 @@
+# ipython backup files
+*.ipynb_checkpoints
+
+# linux backup files
+*~
