@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 import codecs
 
 
-def craw(base_url, limit=100):
+def crawl(base_url, limit=100):
     """
     Returns an list of 'limit' news links contained in the 'base_url' link of UOL Notícias portal. The 'base_url' MUST BE that give the list of news like:
         http://noticias.uol.com.br/ciencia/noticias
@@ -41,7 +41,7 @@ def craw(base_url, limit=100):
     while(True):
 
         # Get the URL text content.
-        html = req.get(base_url, headers=headers).text
+        html = req.get(next_url, headers=headers).text
 
         # Parse the text conent.
         if html:
@@ -65,12 +65,12 @@ def craw(base_url, limit=100):
             return news
         # If the stop conditions aren't yet satisfied, load next page.
         else:
-            next_url = next_page['href']
-        
+            next_url = base_url+next_page['href']
+            #print next_url
         
 if __name__ == '__main__':
     # Example of use.   
     ciencia = 'http://noticias.uol.com.br/ciencia/noticias'
     cotidiano = 'http://noticias.uol.com.br/cotidiano/noticias'
     politica = 'http://noticias.uol.com.br/politica/noticias'
-    craw(ciencia)
+    crawl(ciencia)
